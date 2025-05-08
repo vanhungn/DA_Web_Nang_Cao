@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace DA_Web_Nang_Cao.src.component
+namespace DA_Web_Nang_Cao.src.component.header
 {
     public partial class header : System.Web.UI.Page
     {
