@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DA_Web_Nang_Cao.src.component
+namespace DA_Web_Nang_Cao.src.component.header
 {
 
 
