@@ -180,7 +180,12 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
-    <Content Include="src\component\header\header.aspx" />
+    <Content Include="src\component\footer\footer.css" />
+    <Content Include="src\component\footer\footerHome.ascx" />
+    <Content Include="src\component\header\header.css" />
+    <Content Include="src\component\header\headerHome.ascx" />
+    <Content Include="src\home\home.aspx" />
+    <Content Include="src\home\home.css" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -228,12 +233,26 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
-    <Compile Include="src\component\header\header.aspx.cs">
-      <DependentUpon>header.aspx</DependentUpon>
+    <Compile Include="src\component\footer\footerHome.ascx.cs">
+      <DependentUpon>footerHome.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="src\component\header\header.aspx.designer.cs">
-      <DependentUpon>header.aspx</DependentUpon>
+    <Compile Include="src\component\footer\footerHome.ascx.designer.cs">
+      <DependentUpon>footerHome.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="src\component\header\headerHome.ascx.cs">
+      <DependentUpon>headerHome.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="src\component\header\headerHome.ascx.designer.cs">
+      <DependentUpon>headerHome.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="src\home\home.aspx.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="src\home\home.aspx.designer.cs">
+      <DependentUpon>home.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
@@ -245,7 +264,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="src\home\" />
     <Folder Include="src\picture\" />
   </ItemGroup>
   <ItemGroup>

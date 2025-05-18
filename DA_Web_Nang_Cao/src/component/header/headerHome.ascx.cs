@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace DA_Web_Nang_Cao.src.component.header
 {
-    public partial class header : System.Web.UI.Page
+    public partial class headerHome : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
