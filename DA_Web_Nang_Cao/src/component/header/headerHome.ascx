@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="headerHome.ascx.cs" Inherits="DA_Web_Nang_Cao.src.component.header.headerHome" %>
-    
-    <div>
-        <div class="topHeader">
+
+<div>
+    <div class="topHeader">
         <div class="informOpen">
             <span class="img">
                 <img class="imgVN" src="https://demo037187.web30s.vn/assets/images/language/vn.svg" />
@@ -77,25 +77,47 @@
 
         </div>
         <div class="toolBar">
-            <div class="tool1">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                    stroke=" #2d2a6e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="feather feather-user">
-                    <path d="M20 21v-2a4 4 0 0 0-3-3.87" />
-                    <path d="M4 21v-2a4 4 0 0 1 3-3.87" />
-                    <circle cx="12" cy="7" r="4" />
-                </svg>
 
+            <div class="informOrder">
+                <div class="tool1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                        stroke=" #2d2a6e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-user">
+                        <path d="M20 21v-2a4 4 0 0 0-3-3.87" />
+                        <path d="M4 21v-2a4 4 0 0 1 3-3.87" />
+                        <circle cx="12" cy="7" r="4" />
+                    </svg>
+
+                </div>
+                <div class="payOrder" style="width:190px;padding:0;cursor:pointer">
+                    <p class="ctProduct">Đăng ký</p>
+                    <p class="ctProduct">Đăng nhập</p>
+                </div>
             </div>
-            <div class="tool2">
+            <div class="informOrder">
+                <asp:Panel runat="server" ID="p_opendBoxSearch" class="tool2"  >
+                <asp:Button runat="server" ID="btn_opendSearch" OnClick="OnclickOpendSearch" CssClass="buttonOpendSearch" />
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                     stroke="#2d2a6e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     class="feather feather-search">
                     <circle cx="11" cy="11" r="8" />
                     <line x1="21" y1="21" x2="16.65" y2="16.65" />
                 </svg>
-
+                
+            </asp:Panel>
+                <asp:Panel runat="server" ID="p_boxSearch" CssClass="boxSearch">
+                    <asp:TextBox runat="server" ID="txt_search" CssClass="txt_searchCss" placeholder="Nhập từ khóa tìm kiếm..."></asp:TextBox>
+                    <asp:Panel runat="server" CssClass="p_search">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                    stroke="#2d2a6e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-search">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+                    </asp:Panel>
+                </asp:Panel>
             </div>
+            
             <div class="informOrder">
                 <div class="tool3">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
@@ -107,19 +129,42 @@
                         <line x1="15" y1="10" x2="15" y2="16" />
                     </svg>
                 </div>
-                <div class="inform">0</div>
+                <div class="inform">
+
+                    <asp:Label runat="server" ID="lblInform"></asp:Label>
+
+
+                </div>
                 <div class="payOrder">
-                    <p style="text-align:center; font-size:14px; margin-bottom:25px">Không có thông tin cho loại dữ liệu này</p>
+
+                    <asp:Label runat="server" ID="lblCorrect" Style="text-align: center; font-size: 14px; margin-bottom: 25px"></asp:Label>
+                    <asp:Repeater runat="server" ID="rptListOder">
+                        <ItemTemplate>
+                            <div class="listOrdered">
+                                <div class="ordered" style="padding: 5px; border-radius: 5px; border-bottom: 1px gray solid; display: grid; grid-template-columns: 1fr 2fr; align-items: center">
+                                    <img class="imgOdered" style="width: 70px; height: 70px; border-radius: 5px;" src="<%# Eval("img0") %>" />
+                                    <div>
+                                        <p class="nameOrdered" style="color: #2d2a6e; font-size: 16px; font-weight: 500"><%# Eval("nameItem") %></p>
+                                        <div class="priceAndQuantity" style="display: grid; grid-template-columns: 3fr 1fr; align-items: center">
+                                            <p class="priceOrdered" style="color: red"><%# Eval("promotion").ToString()=="0"? Eval("price").ToString() : Eval("promotion").ToString() %>đ</p>
+                                            <div style="width: 20px; height: 20px; color: #fff; border-radius: 100%; display: flex; justify-content: center; align-items: center; background-color: #2d2a6e" class="quantityOrdered"><%# Eval("quantity") %></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+
                     <div class="totalPay">
                         <span>Tổng tiền:</span>
-                        <span style="color:#A4B465">0đ</span>
+                        <asp:Label runat="server" ID="totalMoney" Style="color: #A4B465"></asp:Label>
                     </div>
-                    <button class="buttonShoppingCart">Giỏ hàng</button>
-                    <button class="buttonPay">Thanh toán</button>
+                    <asp:Button runat="server" ID="buttonShoppingCart" CssClass="buttonShoppingCart" Text="Giỏ hàng" />
+                    <asp:Button runat="server" ID="buttonPay" CssClass="buttonPay" Text="Thanh toán" />
                 </div>
             </div>
-            <span class="totalMonmey">1.000.000.000 đ</span>
+            <span class="totalMonmey">1000000000 đ</span>
         </div>
     </div>
-    </div>
+</div>
 

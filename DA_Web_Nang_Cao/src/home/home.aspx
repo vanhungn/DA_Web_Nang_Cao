@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="home.aspx.cs" Inherits="DA_Web_Nang_Cao.src.home.home" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="home.aspx.cs" Inherits="DA_Web_Nang_Cao.src.home.home"%>
 
 <%@ Register Src="../component/header/headerHome.ascx" TagPrefix="uc" TagName="Header" %>
 <%@ Register Src="../component/footer/footerHome.ascx" TagPrefix="ux" TagName="FooterHome" %>
@@ -56,27 +56,27 @@
                     <p class="food">Thực phẩm sạch</p>
                     <h3 class="newProduct">Sản Phẩm Mới</h3>
                     <div class="listNewProduct">
-<asp:Repeater ID="rptProducts" runat="server" >
-    <ItemTemplate>
-        <div class="productItem">
-         <img class="imgItemProduct" src="<%# Eval("img0")%>" />
-             <div class="inforImgItemProduct">
-            <h4 class="nameNewProduct"><%# Eval("nameItem") %></h4>
-            <div class="priceNewProduct">
-                <span class="priceSell"><%# Eval("promotion").ToString() == "0" ? Eval("price") : Eval("promotion") %>đ</span>
-                <span class="priceSelled">
-                    <%# Eval("promotion").ToString() == "0" ? "" : "<s>" + Eval("price") + "đ</s>" %>
-                </span>
-                <asp:Button runat="server" ID="btnAddOrder" Text="Mua"
-                    CssClass="addOrder"
-                    CommandName="Add"
-                    CommandArgument='<%# Eval("idItem") %>'
-                    OnCommand="AddOrder_Command" />
-            </div>
-            </div>
-        </div>
-    </ItemTemplate>
-</asp:Repeater>
+                        <asp:Repeater ID="rptProducts" runat="server">
+                            <ItemTemplate>
+                                <div class="productItem">
+                                    <img class="imgItemProduct" src="<%# Eval("img0")%>" />
+                                    <div class="inforImgItemProduct">
+                                        <h4 class="nameNewProduct"><%# Eval("nameItem") %></h4>
+                                        <div class="priceNewProduct">
+                                            <span class="priceSell"><%# Eval("promotion").ToString() == "0" ? Eval("price") : Eval("promotion") %>đ</span>
+                                            <span class="priceSelled">
+                                                <%# Eval("promotion").ToString() == "0" ? "" : "<s>" + Eval("price") + "đ</s>" %>
+                                            </span>
+                                            <asp:Button runat="server" Text="Mua"
+                                                CssClass="addOrder"
+                                                CommandName="Add"
+                                                CommandArgument='<%# Eval("idItem") %>'
+                                                OnCommand="AddOrder_Command" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </ItemTemplate>
+                        </asp:Repeater>
 
                     </div>
                     <div class="specialProduct">
@@ -105,54 +105,52 @@
                             </div>
                         </div>
                         <div class="itemProduct">
-                            <%
-                                foreach (var items in SpecialProduct)
-                                {
-                            %>
-                            <img class="imgItemProduct" src="<%=items.img0%>" />
-                            <div class="inforImgItemProduct">
-                                <h2 class="titleSpecialItems"><%=items.nameItem %></h2>
-                                <div class="priceNewItemsProduct">
-                                    <span class="priceSellItemProduct"><%= items.promotion==0?items.price:items.promotion %>đ </span>
-                                    <span class="priceSelledItemProduct">
-                                        <%= items.promotion == 0 ? "" : "<s>" + items.price + "đ</s>" %>
-                                    </span>
-                                </div>
-                                <p style="margin-top: 15px"><b>Trạng thái:</b><span style="color: #96ae00; font-weight: 600; font-size: 16px"> <%= items.satus %></span></p>
-                                <p><b>Xuất sứ:</b> <%=items.origin %></p>
-                                <p><b>Mã mặt hàng:</b> <%=items.idItem %> </p>
-                                <p><i><%=items.descs %></i></p>
-                                <div class="addItemsProduct">
-                                    <div>
-                                        <span><b>Số lượng: </b></span>
-                                        <select id="Select1">
-                                            <option value="0">0</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                        </select>
-                                    </div>
 
-                                    <button id="buttonAddNewOrderHome">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" viewBox="0 0 24 24">
-                                            <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 
-                                          0c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 
-                                          2-2-.9-2-2-2zM7.16 14.26l.03.01L7.16 
-                                          14.26zm12.38-2.45L19.6 13H7.59l-.94-2h12.89zm2.16-3.59c-.19-.24-.48-.38-.79-.38H5.21l-.94-2H1v2h2l3.6 
-                                          7.59-1.35 2.44C4.52 17.37 5.48 19 7 19h12v-2H7.42c-.14 
-                                          0-.25-.11-.25-.25l.03-.12.9-1.63h9.45c.75 
-                                          0 1.41-.41 1.75-1.03l3.58-6.49c.13-.23.11-.52-.06-.74z" />
-                                        </svg>
-                                        THÊM VÀO GIỎ HÀNG</button>
-                                </div>
-                            </div>
-                            <%}
-                            %>
+                            <asp:Repeater ID="rptSpecialProduct" runat="server">
+                                <ItemTemplate>
+                                    <img class="imgItemProduct" src="<%# Eval("img0")%>" />
+                                    <div class="inforImgItemProduct">
+                                        <h2 class="titleSpecialItems"><%# Eval("nameItem") %></h2>
+                                        <div class="priceNewItemsProduct">
+                                            <span class="priceSellItemProduct"><%# Eval("promotion").ToString()=="0"?Eval("price"):Eval("promotion")%>đ </span>
+                                            <span class="priceSelledItemProduct">
+                                                <%# Eval("promotion").ToString() == "0" ? "" : "<s>" + Eval("price") + "đ</s>" %>
+                                            </span>
+                                        </div>
+                                        <p style="margin-top: 15px"><b>Trạng thái:</b><span style="color: #96ae00; font-weight: 600; font-size: 16px"> <%# Eval("satus") %></span></p>
+                                        <p><b>Xuất sứ:</b> <%# Eval("origin") %></p>
+                                        <p><b>Mã mặt hàng:</b> <%# Eval("idItem") %> </p>
+                                        <p><i><%# Eval("descs") %></i></p>
+                                        <div class="addItemsProduct">
+                                            <div>
+                                                <span><b>Số lượng: </b></span>
+                                                <asp:DropDownList ID="selectQuantity" runat="server" Style="padding: 5px 10px; border-radius: 5px;">
+                                                    <asp:ListItem Text="Số lượng" Value="1" />
+                                                    <asp:ListItem Text="1" Value="1" />
+                                                    <asp:ListItem Text="2" Value="2" />
+                                                    <asp:ListItem Text="3" Value="3" />
+                                                    <asp:ListItem Text="4" Value="4" />
+                                                    <asp:ListItem Text="5" Value="5" />
+                                                    <asp:ListItem Text="6" Value="6" />
+                                                    <asp:ListItem Text="7" Value="7" />
+                                                    <asp:ListItem Text="8" Value="8" />
+                                                </asp:DropDownList>
+
+                                            </div>
+
+                                            <asp:Button runat="server"
+                                                CssClass="buttonAddNewOrderHome"
+                                                Style="cursor: pointer; border: none; font-size: 14px; font-weight: 500; color: #fff; padding: 10px 20px; background-color: #2d2a6e; transition: 1s; border-radius: 20px;"
+                                                Text="THÊM VÀO GIỎ HÀNG"
+                                                CommandArgument='<%# Eval("idItem") %>'
+                                                OnCommand="AddOrder_Command" />
+                                        </div>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
                         </div>
                     </div>
+                     
                     <div class="freshHome">
                         <div class="freshFood1">
                             <h2 class="titleFreshHome">THỰC PHẨM TƯƠI 
@@ -177,49 +175,46 @@
                         <p class="food">Thực phẩm sạch</p>
                         <h3 class="newProduct">Sản phẩm bán chạy</h3>
                         <div class="listNewProduct">
-                            <% foreach (var item in SpecialProductPromotion)
-                                { %>
-                            <div class="productItem">
-                                <img class="imgNewProduct" src="<%= item.img0 %>" />
-                                <div style="display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr">
-                                    <h4 class="nameNewProduct"><%= item.nameItem %></h4>
-                                    <div class="priceNewProduct">
-                                        <span class="priceSell"><%= item.promotion==0?item.price:item.promotion %>đ </span>
-                                        <span class="priceSelled">
-                                            <%= item.promotion == 0 ? "" : "<s>" + item.price + "đ</s>" %>
-                                        </span>
-                                        <div class="addOrder">
-                                            <svg class="iconAddOder" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#FA812F" viewBox="0 0 24 24">
-                                                <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 
-                                          0c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 
-                                          2-2-.9-2-2-2zM7.16 14.26l.03.01L7.16 
-                                          14.26zm12.38-2.45L19.6 13H7.59l-.94-2h12.89zm2.16-3.59c-.19-.24-.48-.38-.79-.38H5.21l-.94-2H1v2h2l3.6 
-                                          7.59-1.35 2.44C4.52 17.37 5.48 19 7 19h12v-2H7.42c-.14 
-                                          0-.25-.11-.25-.25l.03-.12.9-1.63h9.45c.75 
-                                          0 1.41-.41 1.75-1.03l3.58-6.49c.13-.23.11-.52-.06-.74z" />
-                                            </svg>
+                            <asp:Repeater ID="rptSpecialProductPromotion" runat="server">
+                                <ItemTemplate>
+                                    <div class="productItem">
+                                        <img class="imgNewProduct" src="<%# Eval("img0") %>" />
+                                        <div style="display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr">
+                                            <h4 class="nameNewProduct"><%# Eval("nameItem") %></h4>
+                                            <div class="priceNewProduct">
+                                                <span class="priceSell"><%# Eval("promotion").ToString()=="0"?Eval("price"):Eval("promotion") %>đ </span>
+                                                <span class="priceSelled">
+                                                    <%# Eval("promotion").ToString()== "0" ? "" : "<s>" + Eval("price") + "đ</s>" %>
+                                                </span>
+                                                <asp:Button runat="server" Text="Mua"
+                                                    CssClass="addOrder"
+                                                    CommandName="Add"
+                                                    CommandArgument='<%# Eval("idItem") %>'
+                                                    OnCommand="AddOrder_Command" />
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <% } %>
+                                </ItemTemplate>
+                            </asp:Repeater>
                         </div>
                         <div class="foodGuide">
                             <p class="food">Thực phẩm sạch</p>
                             <h3 class="newProduct">Cẩm Nang Chọn Thực phẩm</h3>
                             <div class="foodSelectionHuide">
 
-                                <% foreach (var item in FoodGuide)
-                                    { %>
-                                <div class="productItem">
-                                    <img class="imgNewProduct" src="<%= item.img0 %>" />
-                                    <div style="padding: 10px; display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr">
-                                        <h4 class="nameNewProduct"><%= item.nameItem %></h4>
-                                        <p><i style="color: #2d2a6e"><%=item.descs%></i></p>
-                                        <p class="learnMore">Tìm hiểu thêm</p>
-                                    </div>
-                                </div>
-                                <% } %>
+                                <asp:Repeater ID="rptFoodGuide" runat="server">
+
+                                    <ItemTemplate>
+                                        <div class="productItem">
+                                            <img class="imgNewProduct" src="<%# Eval("img0") %>" />
+                                            <div style="padding: 10px; display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr">
+                                                <h4 class="nameNewProduct"><%# Eval("nameItem") %></h4>
+                                                <p><i style="color: #2d2a6e"><%# Eval("descs")%></i></p>
+                                                <p class="learnMore">Tìm hiểu thêm</p>
+                                            </div>
+                                        </div>
+                                    </ItemTemplate>
+                                </asp:Repeater>
                             </div>
                         </div>
 
