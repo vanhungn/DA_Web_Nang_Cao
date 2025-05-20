@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DA_Web_Nang_Cao.src.home
+namespace DA_Web_Nang_Cao.src.admin.logInAdmin
 {
 
 
-    public partial class home
+    public partial class loginAdmin
     {
 
         /// <summary>
@@ -24,57 +24,39 @@ namespace DA_Web_Nang_Cao.src.home
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// headerHome control.
+        /// txt_userNameAdmin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DA_Web_Nang_Cao.src.component.header.headerHome headerHome;
+        protected global::System.Web.UI.WebControls.TextBox txt_userNameAdmin;
 
         /// <summary>
-        /// rptProducts control.
+        /// txt_passwordAdmin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptProducts;
+        protected global::System.Web.UI.WebControls.TextBox txt_passwordAdmin;
 
         /// <summary>
-        /// rptSpecialProduct control.
+        /// lbl_errorUnsuccessful control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptSpecialProduct;
+        protected global::System.Web.UI.WebControls.Label lbl_errorUnsuccessful;
 
         /// <summary>
-        /// rptSpecialProductPromotion control.
+        /// btn_loginAdmin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptSpecialProductPromotion;
-
-        /// <summary>
-        /// rptFoodGuide control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptFoodGuide;
-
-        /// <summary>
-        /// footerHome control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DA_Web_Nang_Cao.src.component.footer.footer footerHome;
+        protected global::System.Web.UI.WebControls.Button btn_loginAdmin;
     }
 }

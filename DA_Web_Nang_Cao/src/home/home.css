@@ -1,11 +1,17 @@
-﻿*{
+﻿:root {
+    --Quicksand: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+body {
+    font-family: var(--Quicksand);
+    background-color: rgba(200, 200, 200, 0.2);
+}
+*{
     padding:0;
     margin:0;
     box-sizing:border-box;
 }
-body {
-    background-color: rgba(200, 200, 200, 0.2);
-}
+
 .topDeal {
     padding-left:10%;
     margin-bottom:40px;
@@ -184,33 +190,13 @@ body {
     align-items:center;
     gap:20px;
 }
-#buttonAddNewOrderHome{
-    cursor:pointer;
-    border:none;
-    font-size:14px;
-    font-weight:500;
-    color:#fff;
-    padding:10px 20px;
-    background-color:#2d2a6e;
-    transition:1s;
-    border-radius:20px;
-    display:flex;
-    align-items:center;
-    gap:10px;
 
-}
-#buttonAddNewOrderHome:hover{
-    background-color:#96ae00;
-    
-}
 .addItemsProduct{
     display:flex;
     align-items:center;
     gap:30px;
 }
-#Select1{
-    padding:5px 10px;
-}
+
 .freshHome{
     margin:50px 0;
     display:grid;
@@ -264,9 +250,7 @@ body {
 .addOrder:hover{
     background-color:orange;
 }
-.addOrder:hover .iconAddOder{
-    fill:#fff
-}
+
 .foodSelectionHuide{
     display:grid;
     grid-template-columns:1fr 1fr 1fr 1fr;

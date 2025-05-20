@@ -1,0 +1,68 @@
+﻿
+:root {
+    --Quicksand: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+body {
+    font-family: var(--Quicksand)
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.backgroudAdmin {
+    width:100%;
+    height:100vh;
+    background-image: url("https://preview.colorlib.com/theme/bootstrap/login-form-20/images/bg.jpg.webp");
+    background-size: 100% 100vh;
+   
+}
+.txtAdmin {
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    border: none;
+    outline:none;    
+    width: 100%;
+    color: #fff;
+    font-size: 16px;
+}
+.txtAdmin::placeholder{
+    color:#fff;
+}
+.form_loginAdmin{
+    width:300px;
+    height:auto;
+}
+.buttonLogin {
+    width: 100%;
+    padding: 15px;
+    border-radius: 30px;
+    background-color: #fbceb5;
+    border:none;
+    font-size:18px;
+    margin-top:15px;
+}
+.buttonLogin:hover{
+     background-color: #96ae00;
+    color:#fff;
+
+}
+.title_loginAdmin{
+    text-align:center;
+    color:#fff;
+    margin-bottom:30px;
+}
+.blurBackgound {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.errorUnsuccessful,.validateUserNameAdmin{
+    color:red;
+    font-size:14px;
+}

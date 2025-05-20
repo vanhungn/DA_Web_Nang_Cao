@@ -8,16 +8,15 @@ using System.Web;
 using System.Web.Services.Description;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using DA_Web_Nang_Cao.src.model;
 namespace DA_Web_Nang_Cao.src.home
 {
     public partial class home : System.Web.UI.Page
     {
-        public List<specialProduct> ProductsList = new List<specialProduct>();
-        public List<specialProduct> SpecialProduct = new List<specialProduct>();
-        public List<specialProduct> SpecialProductPromotion = new List<specialProduct>();
-        public List<specialProduct> FoodGuide = new List<specialProduct>();
-
+        public List<modelItems> ProductsList = new List<modelItems>();
+        public List<modelItems> SpecialProduct = new List<modelItems>();
+        public List<modelItems> SpecialProductPromotion = new List<modelItems>();
+        public List<modelItems> FoodGuide = new List<modelItems>();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -35,29 +34,20 @@ namespace DA_Web_Nang_Cao.src.home
             FoodGuide = GetFoodGuide();
 
             rptProducts.DataSource = ProductsList;
+            rptSpecialProduct.DataSource = SpecialProduct;
+            rptSpecialProductPromotion.DataSource = SpecialProductPromotion;
+            rptFoodGuide.DataSource = FoodGuide;
+            
             rptProducts.DataBind();
-        }
-        public class specialProduct
-        {
-            public string idItem { get; set; }
-            public string nameItem { get; set; }
-            public string descs { get; set; }
-            public string img0 { get; set; }
-            public string img1 { get; set; }
-            public string img2 { get; set; }
-            public int price { get; set; }
-            public int promotion { get; set; }
-            public string satus { get; set; }
-            public string origin { get; set; }
-            public string weights { get; set; }
-            public int totalQuantity { get; set; }
-            public int quantitySold { get; set; }
-            public string kindOfItem { get; set; }
+            rptSpecialProduct.DataBind();
+            rptSpecialProductPromotion.DataBind();
+            rptFoodGuide.DataBind();
 
         }
-        private List<specialProduct> GetProducts()
+     
+        private List<modelItems> GetProducts()
         {
-            List<specialProduct> products = new List<specialProduct>();
+            List<modelItems> products = new List<modelItems>();
             string connStr = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
             using (SqlConnection conn = new SqlConnection(connStr))
@@ -80,7 +70,7 @@ namespace DA_Web_Nang_Cao.src.home
                         {
                             pricePromotion = (pri * pro) / 100;
                         }
-                        specialProduct items = new specialProduct
+                        modelItems items = new modelItems
                         {
                             idItem = reader["idItems"].ToString(),
                             nameItem = reader["nameItem"].ToString(),
@@ -101,9 +91,9 @@ namespace DA_Web_Nang_Cao.src.home
 
             return products;
         }
-        private List<specialProduct> GetsSpecialProducts()
+        private List<modelItems> GetsSpecialProducts()
         {
-            List<specialProduct> products = new List<specialProduct>();
+            List<modelItems> products = new List<modelItems>();
             string conStr = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
             using (SqlConnection conn = new SqlConnection(conStr))
@@ -124,7 +114,7 @@ namespace DA_Web_Nang_Cao.src.home
                             pricePromotion = (pri * pro) / 100;
                         }
                         string[] descSplit = reader["descs"].ToString().Trim().Split('.');
-                        specialProduct item = new specialProduct
+                        modelItems item = new modelItems
                         {
                             idItem = reader["idItems"].ToString(),
                             nameItem = reader["nameItem"].ToString(),
@@ -148,9 +138,9 @@ namespace DA_Web_Nang_Cao.src.home
             }
             return products;
         }
-        private List<specialProduct> GetProductPromotion()
+        private List<modelItems> GetProductPromotion()
         {
-            List<specialProduct> products = new List<specialProduct>();
+            List<modelItems> products = new List<modelItems>();
             string conTro = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             using (SqlConnection con = new SqlConnection(conTro))
             {
@@ -169,7 +159,7 @@ namespace DA_Web_Nang_Cao.src.home
                         {
                             pricePromotion = (pri * pro) / 100;
                         }
-                        specialProduct items = new specialProduct
+                        modelItems items = new modelItems
                         {
                             idItem = reader["idItems"].ToString(),
                             nameItem = reader["nameItem"].ToString(),
@@ -188,9 +178,9 @@ namespace DA_Web_Nang_Cao.src.home
             }
             return products;
         }
-        private List<specialProduct> GetFoodGuide()
+        private List<modelItems> GetFoodGuide()
         {
-            List<specialProduct> specialProducts = new List<specialProduct>();
+            List<modelItems> specialProducts = new List<modelItems>();
             string conTro = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             using (SqlConnection con = new SqlConnection(conTro))
             {
@@ -202,7 +192,7 @@ namespace DA_Web_Nang_Cao.src.home
                     while (reader.Read())
                     {
                         string spliceDescs = reader["descs"].ToString().Trim().Substring(0, 100);
-                        specialProduct items = new specialProduct
+                        modelItems items = new modelItems
                         {
                             idItem = reader["idItems"].ToString(),
                             nameItem = reader["nameItem"].ToString(),
@@ -224,13 +214,22 @@ namespace DA_Web_Nang_Cao.src.home
         {
            string productId = e.CommandArgument.ToString();
             string contro = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            int quantity = 1;
+
+            foreach (RepeaterItem item in rptSpecialProduct.Items)
+            {
+                DropDownList dropDownListValue = item.FindControl("selectQuantity") as DropDownList;
+                quantity = int.Parse(dropDownListValue.SelectedValue);
+
+            }
             using (SqlConnection con = new SqlConnection(contro))
             {
                 string query = @"INSERT INTO ORDERS (quantity,idUsers,idItems) VALUES(@quantity,@idUsers,@idItems)";
+               
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
-                    cmd.Parameters.AddWithValue("@quantity", 1);
-                    cmd.Parameters.AddWithValue("@idUsers", "1"); // Tạm thời hard-code user ID là 1
+                    cmd.Parameters.AddWithValue("@quantity", quantity);
+                    cmd.Parameters.AddWithValue("@idUsers", 1); // Tạm thời hard-code user ID là 1
                     cmd.Parameters.AddWithValue("@idItems", productId);
 
                     con.Open();
@@ -238,9 +237,10 @@ namespace DA_Web_Nang_Cao.src.home
                 }
             }
             LoadData();
-
+           headerHome.LoadOrderList();
 
         }
+      
     }
     
 }
