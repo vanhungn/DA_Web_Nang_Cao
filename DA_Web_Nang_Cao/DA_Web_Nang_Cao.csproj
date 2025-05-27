@@ -191,6 +191,15 @@
     <Content Include="Site.Master" />
     <Content Include="src\admin\logInAdmin\loginAdmin.aspx" />
     <Content Include="src\admin\logInAdmin\loginAdmin.css" />
+    <Content Include="src\admin\masterAdmin\pageAdmin.css" />
+    <Content Include="src\admin\pageContact\pageContact.aspx" />
+    <Content Include="src\admin\pageItems\detailItems\detailItems.ascx" />
+    <Content Include="src\admin\pageItems\detailItems\detailItems.css" />
+    <Content Include="src\admin\pageItems\pageItem.aspx" />
+    <Content Include="src\admin\pageItems\pageItem.css" />
+    <Content Include="src\admin\pageItems\updateItem\updateItem.ascx" />
+    <Content Include="src\admin\pageOrder\pageOrder.aspx" />
+    <Content Include="src\admin\pageUser\pageUser.aspx" />
     <Content Include="src\component\footer\footer.css" />
     <Content Include="src\component\footer\footerHome.ascx" />
     <Content Include="src\component\header\header.css" />
@@ -207,7 +216,7 @@
     <Content Include="src\thanhtoan\thanhtoan.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
-    <Content Include="Bundle.config" />
+    <Content Include="src\home\Bundle.config" />
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
@@ -258,6 +267,55 @@
     </Compile>
     <Compile Include="src\admin\logInAdmin\loginAdmin.aspx.designer.cs">
       <DependentUpon>loginAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="src\admin\masterAdmin\pageAdmin.Master.cs">
+      <DependentUpon>pageAdmin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="src\admin\masterAdmin\pageAdmin.Master.designer.cs">
+      <DependentUpon>pageAdmin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="src\admin\pageContact\pageContact.aspx.cs">
+      <DependentUpon>pageContact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="src\admin\pageContact\pageContact.aspx.designer.cs">
+      <DependentUpon>pageContact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="src\admin\pageItems\detailItems\detailItems.ascx.cs">
+      <DependentUpon>detailItems.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="src\admin\pageItems\detailItems\detailItems.ascx.designer.cs">
+      <DependentUpon>detailItems.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="src\admin\pageItems\pageItem.aspx.cs">
+      <DependentUpon>pageItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="src\admin\pageItems\pageItem.aspx.designer.cs">
+      <DependentUpon>pageItem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="src\admin\pageItems\updateItem\updateItem.ascx.cs">
+      <DependentUpon>updateItem.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="src\admin\pageItems\updateItem\updateItem.ascx.designer.cs">
+      <DependentUpon>updateItem.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="src\admin\pageOrder\pageOrder.aspx.cs">
+      <DependentUpon>pageOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="src\admin\pageOrder\pageOrder.aspx.designer.cs">
+      <DependentUpon>pageOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="src\admin\pageUser\pageUser.aspx.cs">
+      <DependentUpon>pageUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="src\admin\pageUser\pageUser.aspx.designer.cs">
+      <DependentUpon>pageUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="src\component\footer\footerHome.ascx.cs">
       <DependentUpon>footerHome.ascx</DependentUpon>
@@ -347,6 +405,7 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <None Include="packages.config" />
+<<<<<<< HEAD
     <Content Include="Scripts\bootstrap.min.js.map" />
     <Content Include="Scripts\bootstrap.js.map" />
     <Content Include="Scripts\bootstrap.esm.min.js.map" />
@@ -355,6 +414,11 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\jquery-3.7.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.7.1.min.map" />
+=======
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="src\admin\masterAdmin\pageAdmin.Master" />
+>>>>>>> 4d0b9c81a7b09ca78a813b330c209b13c3d0d1aa
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
