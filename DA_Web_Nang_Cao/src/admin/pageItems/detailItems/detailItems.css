@@ -1,0 +1,43 @@
+﻿body {
+}
+.box_detailItem{
+    display:flex;
+    gap:20px;
+}
+.imgDetail{
+    width:200px;
+    height:175px;
+    object-fit:cover;
+    border-radius:5px;
+}
+.box_detailItemLeft{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+
+}
+.titleChildrentItems{
+    font-size:18px;
+    font-weight:600;
+   
+}
+.box_detailItemRight{
+    padding:30px 10px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+}
+.childrentItems{
+    margin-bottom:15px;
+}
+.box_buttonCancel{
+    display:flex;
+    justify-content:flex-end;
+}
+.buttonCancel {
+    background-color: #ff0000;
+    cursor: pointer;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+}

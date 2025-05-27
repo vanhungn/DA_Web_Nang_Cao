@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Routing;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DA_Web_Nang_Cao.src.model;
@@ -23,7 +24,7 @@ namespace DA_Web_Nang_Cao.src.admin.logInAdmin
             string contro = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             using (SqlConnection con = new SqlConnection(contro))
             {
-                string query = @"SELECT idUsers FROM USERS WHERE userNames=@userNames AND   passwords=@passwords AND roles='admin'";
+                string query = @"SELECT idUsers,roles FROM USERS WHERE userNames=@userNames AND   passwords=@passwords AND roles='admin'";
                 using (SqlCommand cmd = new SqlCommand(query,con))
                 {
                     cmd.Parameters.AddWithValue("@userNames", txt_userNameAdmin.Text);
@@ -34,7 +35,8 @@ namespace DA_Web_Nang_Cao.src.admin.logInAdmin
                     {
                         modelUsers login = new modelUsers
                         {
-                            idUsers = Convert.ToInt32(reader["idUsers"])
+                            idUsers = Convert.ToInt32(reader["idUsers"]),
+                            roles= reader["roles"].ToString()
                         };
                         modelLogin.Add(login);
 
@@ -48,7 +50,15 @@ namespace DA_Web_Nang_Cao.src.admin.logInAdmin
             }
             else
             {
-                Response.Redirect("/src/home/home.aspx");
+                HttpCookie cookie = new HttpCookie("admin");
+                foreach(modelUsers login in modelLogin)
+                {
+                    cookie["idUsers"] =login.idUsers.ToString();
+                    cookie["roles"] = login.roles;
+                    cookie.Expires = DateTime.Now.AddHours(1);
+                    Response.Cookies.Add(cookie);
+                }
+                Response.Redirect("/src/admin/pageUser/pageUser");
             }
         }
     }
