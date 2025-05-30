@@ -39,8 +39,8 @@ namespace DA_Web_Nang_Cao.src.dangkygangnhap
             });
             app.UseFacebookAuthentication(new FacebookAuthenticationOptions
             {
-                AppId = "1211001333765184",
-                AppSecret = "febcaf306833ba6850bf1d4b25da7abf",
+                AppId = "672792019063028",
+                AppSecret = "803ca3e79d553cdf6429f22d47b9917a",
                 CallbackPath = new PathString("/ExternalCallback.aspx"), // hoặc /signin-facebook nếu dùng mặc định
                 Scope = { "email" },
                 Fields = { "email", "name" },

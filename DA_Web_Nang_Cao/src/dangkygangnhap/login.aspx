@@ -69,7 +69,7 @@
             </div>
 
             <div class="social-login" style="margin-top:20px;">
-                <button type="button" class="facebook">
+                <button type="button" class="facebook" onclick="location.href='ExternalLogin.aspx?provider=Facebook'">
                      <img src="facebook.png" alt="facebook Icon" style="height:16px; vertical-align:middle;" /> Đăng nhập với facebook
                 </button>
                <button type="button" class="google" onclick="location.href='ExternalLogin.aspx?provider=Google'">

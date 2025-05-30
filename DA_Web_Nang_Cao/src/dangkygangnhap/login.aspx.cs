@@ -35,7 +35,7 @@ namespace DA_Web_Nang_Cao.src.dangkygangnhap
                 if (count > 0)
                 {
                     HttpCookie cookie = new HttpCookie("loginUser");
-                    cookie["idUser"]=count.ToString();
+                    cookie["idUsers"] =count.ToString();
                     cookie.Expires = DateTime.Now.AddHours(3);
                     Response.Cookies.Add(cookie);
                     Response.Redirect("~/src/home/home.aspx"); 

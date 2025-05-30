@@ -1,0 +1,94 @@
+﻿/* Container tổng */
+.pageUserContainer {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+/* Ô tìm kiếm và nút thêm */
+.boxSearchQuery {
+    margin-bottom: 15px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.textBoxSearchItem {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Nút thêm */
+.buttonAddItem {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    .buttonAddItem:hover {
+        background-color: #45a049;
+    }
+
+/* Bảng người dùng */
+.userTable {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+    .userTable th, .userTable td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+    }
+
+    .userTable th {
+        background-color: #4A3AFF;
+        color: white;
+        font-weight: bold;
+    }
+
+    .userTable tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .userTable tr:hover {
+        background-color: #f1f1f1;
+    }
+
+/* Nút Sửa / Xoá */
+.buttonLook {
+    color: #4A3AFF;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+    .buttonLook:hover {
+        text-decoration: underline;
+        color: #2e20cc;
+    }
+
+/* Responsive (tùy chọn nếu cần dùng trên mobile/tablet) */
+@media (max-width: 768px) {
+    .boxSearchQuery {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .textBoxSearchItem, .buttonAddItem {
+        width: 100%;
+    }
+
+    .userTable {
+        font-size: 12px;
+    }
+}
