@@ -21,9 +21,46 @@ namespace DA_Web_Nang_Cao.src.component.header
             {
                 LoadOrderList();
                 p_boxSearch.Visible = false;
-                
+                LoadUserName();
+
             }
-          
+
+            
+
+        }
+        private void LoadUserName()
+        {
+            if (Request.Cookies["loginUser"] != null)
+            {
+                string idUser = Request.Cookies["loginUser"]["idUsers"];
+                string connStr = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+
+                using (SqlConnection conn = new SqlConnection(connStr))
+                {
+                    string query = "SELECT names, moneys FROM USERS WHERE idUsers = @id";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@id", idUser);
+
+                    try
+                    {
+                        conn.Open();
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        if (reader.Read())
+                        {
+                            string name = reader["names"].ToString();
+                            int money = reader["moneys"] != DBNull.Value ? Convert.ToInt32(reader["moneys"]) : 0;
+
+                            lblUserName.Text = "👤 " + name;
+                            lblSoDu.Text = money.ToString("N0") + " đ"; // VD: 1,000,000 đ
+                        }
+                    }
+                    catch
+                    {
+                        lblUserName.Text = "Không tìm thấy tên";
+                        lblSoDu.Text = "0 đ";
+                    }
+                }
+            }
         }
         public void OnclickOpendSearch(object sender, EventArgs e)
         {

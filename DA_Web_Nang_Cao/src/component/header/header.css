@@ -2,6 +2,9 @@
 :root {
     --Quicksand: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 }
+.user{
+    display:block;
+}
 body {
     font-family:var(--Quicksand)
 }
@@ -45,6 +48,12 @@ body {
     display: grid;
     grid-template-columns: 0.7fr 3fr 1fr;
     align-items:center;
+}
+.user-name {
+    font-weight: bold;
+    color: #2d2a6e;
+    display: block;
+    margin-bottom: 4px;
 }
 
 .linkPage > ul {

@@ -19,13 +19,17 @@ namespace DA_Web_Nang_Cao.src.home
         public List<modelItems> FoodGuide = new List<modelItems>();
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+
             if (!IsPostBack)
             {
                 LoadData();
             }
 
+        
 
         }
+
         private void LoadData()
         {
             ProductsList = GetProducts();

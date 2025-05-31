@@ -163,7 +163,15 @@
                     <asp:Button runat="server" ID="buttonPay" CssClass="buttonPay" Text="Thanh toán" />
                 </div>
             </div>
-            <span class="totalMonmey">1000000000 đ</span>
+             <div class="user">
+            <div>
+                <asp:Label ID="lblUserName" runat="server" CssClass="user-name" />
+            </div>
+           <div>
+               <asp:Label ID="lblSoDu" runat="server" CssClass="ms-2 text-success fw-bold" />
+           </div>
+                   
+        </div>
         </div>
     </div>
 </div>
