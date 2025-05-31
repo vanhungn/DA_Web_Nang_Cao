@@ -11,142 +11,115 @@ namespace DA_Web_Nang_Cao.src.admin.pageUser
 {
 
 
-    public partial class pageUser1
+    public partial class updateUser
     {
 
         /// <summary>
-        /// img0 control.
+        /// pnlForm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image img0;
+        protected global::System.Web.UI.WebControls.Panel pnlForm;
 
         /// <summary>
-        /// img1 control.
+        /// lblTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image img1;
+        protected global::System.Web.UI.WebControls.Label lblTitle;
 
         /// <summary>
-        /// img2 control.
+        /// txt_names control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image img2;
+        protected global::System.Web.UI.WebControls.TextBox txt_names;
 
         /// <summary>
-        /// lbl_id control.
+        /// txt_phones control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_id;
+        protected global::System.Web.UI.WebControls.TextBox txt_phones;
 
         /// <summary>
-        /// lbl_nameItem control.
+        /// txt_emails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_nameItem;
+        protected global::System.Web.UI.WebControls.TextBox txt_emails;
 
         /// <summary>
-        /// lbl_price control.
+        /// txt_userNames control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_price;
+        protected global::System.Web.UI.WebControls.TextBox txt_userNames;
 
         /// <summary>
-        /// lbl_promotion control.
+        /// txt_passwords control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_promotion;
+        protected global::System.Web.UI.WebControls.TextBox txt_passwords;
 
         /// <summary>
-        /// lbl_totalQuantity control.
+        /// ddl_roles control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_totalQuantity;
+        protected global::System.Web.UI.WebControls.DropDownList ddl_roles;
 
         /// <summary>
-        /// lbl_quantitySold control.
+        /// txt_addresss control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_quantitySold;
+        protected global::System.Web.UI.WebControls.TextBox txt_addresss;
 
         /// <summary>
-        /// lbl_kindOfItem control.
+        /// txt_moneys control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_kindOfItem;
+        protected global::System.Web.UI.WebControls.TextBox txt_moneys;
 
         /// <summary>
-        /// lbl_weights control.
+        /// btnSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_weights;
+        protected global::System.Web.UI.WebControls.Button btnSave;
 
         /// <summary>
-        /// lbl_satus control.
+        /// btnCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_satus;
-
-        /// <summary>
-        /// lbl_origin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_origin;
-
-        /// <summary>
-        /// lbl_descs control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_descs;
-
-        /// <summary>
-        /// btn_CancelDetail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_CancelDetail;
+        protected global::System.Web.UI.WebControls.Button btnCancel;
     }
 }
