@@ -130,30 +130,51 @@
                     </div>
                     <div class="form-group">
                         <label>Điện thoại</label>
-                        <asp:TextBox ID="txtPhone" runat="server" required="true" />
+                        <asp:TextBox ID="txtPhone" runat="server"  />
+                                                <asp:RequiredFieldValidator runat="server" ID="rfvphone" EnableClientScript="true" ForeColor="red" ControlToValidate="txtphone" ErrorMessage="Bạn không được để trống ô nay, nhập lại">
+
+</asp:RequiredFieldValidator>
+
                     </div>
                     <div class="form-group">
                         <label>Địa chỉ</label>
                         <asp:TextBox ID="txtAddress" runat="server" />
+                          <asp:RequiredFieldValidator runat="server" ID="rfvAddress" EnableClientScript="true" ForeColor="red" ControlToValidate="txtAddress" ErrorMessage="Bạn không được để trống ô nay, nhập lại">
+
+</asp:RequiredFieldValidator>
+
                     </div>
                     <div class="form-group">
                         <label>Email</label>
-                        <asp:TextBox ID="txtEmail" runat="server" TextMode="Email" required="true" />
+                        <asp:TextBox ID="txtEmail" runat="server" TextMode="Email"  />
+                     <asp:RequiredFieldValidator runat="server" ID="rfvEmail" EnableClientScript="true" ForeColor="red" ControlToValidate="txtEmail" ErrorMessage="Bạn không được để trống ô nay, nhập lại">
+
+</asp:RequiredFieldValidator>
+
                     </div>
                 </div>
 
                 <div class="form-column">
                     <div class="form-group">
                         <label>Tên truy cập</label>
-                        <asp:TextBox ID="txtUsername" runat="server" required="true" />
+                        <asp:TextBox ID="txtUsername" runat="server" />
+                                             <asp:RequiredFieldValidator runat="server" ID="rfvUsername" EnableClientScript="true" ForeColor="red" ControlToValidate="txtUsername" ErrorMessage="Bạn không được để trống ô nay, nhập lại">
+
+</asp:RequiredFieldValidator>
                     </div>
                     <div class="form-group">
                         <label>Mật khẩu</label>
-                        <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" required="true" />
+                        <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" />
+                  <asp:RequiredFieldValidator runat="server" ID="rfvPassword" EnableClientScript="true" ForeColor="red" ControlToValidate="txtPassword" ErrorMessage="Bạn không được để trống ô nay, nhập lại">
+
+</asp:RequiredFieldValidator>
                     </div>
                     <div class="form-group">
                         <label>Xác nhận mật khẩu</label>
-                        <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password" required="true" />
+                        <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password"  />
+                  <asp:RequiredFieldValidator runat="server" ID="rfvConfirmPassword" EnableClientScript="true" ForeColor="red" ControlToValidate="txtConfirmPassword" ErrorMessage="Bạn không được để trống ô nay, nhập lại">
+
+</asp:RequiredFieldValidator>
                     </div>
                     <div class="form-group">
     <label>Mã bảo mật</label>

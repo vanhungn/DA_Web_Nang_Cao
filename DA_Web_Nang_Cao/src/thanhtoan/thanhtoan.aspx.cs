@@ -10,21 +10,57 @@ namespace DA_Web_Nang_Cao.src.thanhtoan
 {
     public partial class thanhtoan : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        private Dictionary<string, List<string>> tinhThanhToHuyen = new Dictionary<string, List<string>>()
         {
-            if (!IsPostBack)
-            {
-                LoadTinhThanh();
-            }
-        }
-        private void LoadTinhThanh()
-        {
-            ddlTinh.Items.Add("Hà Nội");
-            ddlTinh.Items.Add("TP. Hồ Chí Minh");
-            ddlTinh.Items.Add("Đà Nẵng");
+            { "Hà Nội", new List<string> { "Quận Ba Đình", "Quận Hoàn Kiếm" } },
+            { "Hồ Chí Minh", new List<string> { "Quận 1", "Quận 3" } }
+        };
 
-            ddlHuyen.Items.Add("--- Chọn quận/huyện ---");
+        private Dictionary<string, List<string>> huyenToXa = new Dictionary<string, List<string>>()
+        {
+            // Quận Ba Đình - Hà Nội
+            { "Quận Ba Đình", new List<string> {
+                "Phường Phúc Xá", "Phường Trúc Bạch", "Phường Vĩnh Phúc", "Phường Cống Vị",
+                "Phường Liễu Giai", "Phường Nguyễn Trung Trực", "Phường Quán Thánh",
+                "Phường Điện Biên", "Phường Đội Cấn", "Phường Ngọc Hà", "Phường Thành Công"
+            }},
+
+            // Quận Hoàn Kiếm - Hà Nội
+            { "Quận Hoàn Kiếm", new List<string> {
+                "Phường Chương Dương", "Phường Hàng Bạc", "Phường Hàng Bồ", "Phường Hàng Đào",
+                "Phường Hàng Gai", "Phường Hàng Trống", "Phường Lý Thái Tổ", "Phường Cửa Đông",
+                "Phường Cửa Nam", "Phường Đồng Xuân", "Phường Hàng Buồm", "Phường Phan Chu Trinh"
+            }},
+
+            // Quận 1 - Hồ Chí Minh
+            { "Quận 1", new List<string> {
+                "Phường Tân Định", "Phường Đa Kao", "Phường Bến Nghé"
+            }},
+
+            // Quận 3 - Hồ Chí Minh
+            { "Quận 3", new List<string> {
+                "Phường Võ Thị Sáu", "Phường Phường 7", "Phường Phường 8"
+            }},
+        };
+
+      
+
+   
+
+        protected void ddlHuyen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ddlXa.Items.Clear();
             ddlXa.Items.Add("--- Chọn phường/xã ---");
+
+            string selectedHuyen = ddlHuyen.SelectedValue;
+
+            if (huyenToXa.ContainsKey(selectedHuyen))
+            {
+                foreach (var xa in huyenToXa[selectedHuyen])
+                {
+                    ddlXa.Items.Add(xa);
+                }
+            }
         }
 
         protected void btnThanhToan_Click(object sender, EventArgs e)

@@ -200,9 +200,10 @@
     <Content Include="src\admin\pageItems\pageItem.css" />
     <Content Include="src\admin\pageItems\updateItem\updateItem.ascx" />
     <Content Include="src\admin\pageOrder\pageOrder.aspx" />
+    <Content Include="src\admin\pageUser\pageUsercontrol.ascx" />
     <Content Include="src\admin\pageUser\pageUser.aspx" />
     <Content Include="src\admin\pageUser\pageUser.css" />
-    <Content Include="src\admin\pageUser\pageUserAddEdit.aspx" />
+    <Content Include="src\admin\pageUser\pageUsercontrol.css" />
     <Content Include="src\component\footer\footer.css" />
     <Content Include="src\component\footer\footerHome.ascx" />
     <Content Include="src\component\header\header.css" />
@@ -319,19 +320,19 @@
     <Compile Include="src\admin\pageOrder\pageOrder.aspx.designer.cs">
       <DependentUpon>pageOrder.aspx</DependentUpon>
     </Compile>
+    <Compile Include="src\admin\pageUser\pageUsercontrol.ascx.cs">
+      <DependentUpon>pageUsercontrol.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="src\admin\pageUser\pageUsercontrol.ascx.designer.cs">
+      <DependentUpon>pageUsercontrol.ascx</DependentUpon>
+    </Compile>
     <Compile Include="src\admin\pageUser\pageUser.aspx.cs">
       <DependentUpon>pageUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="src\admin\pageUser\pageUser.aspx.designer.cs">
       <DependentUpon>pageUser.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="src\admin\pageUser\pageUserAddEdit.aspx.cs">
-      <DependentUpon>pageUserAddEdit.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="src\admin\pageUser\pageUserAddEdit.aspx.designer.cs">
-      <DependentUpon>pageUserAddEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="src\component\footer\footerHome.ascx.cs">
       <DependentUpon>footerHome.ascx</DependentUpon>
