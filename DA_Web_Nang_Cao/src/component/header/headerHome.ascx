@@ -34,12 +34,14 @@
                        <path fill-rule="evenodd" d="M8 1v12.293l3.646-3.647.708.708L8 15l-4.354-4.354.708-.708L8 13.293V1z" />
                    </svg>
                     <div class="categoryProduct">
-                        <p class="ctProduct">Bột, Ngũ cốc</p>
-                        <p class="ctProduct">Rau củ quả</p>
-                        <p class="ctProduct">Hải sản</p>
-                        <p class="ctProduct">Thực phẩm đông lạnh</p>
-                        <p class="ctProduct">Sushi & Sashimi Deli</p>
-                        <p class="ctProduct">Thịt - Cá</p>
+                        
+                            <asp:Button CssClass="ctProduct" Text="Bột, Ngũ cốc" runat="server" CommandName="category" CommandArgument="Bột, Ngũ cốc" OnCommand="OnCommentCategoryHeader" />
+                            <asp:Button CssClass="ctProduct" Text="Rau củ quả" runat="server" CommandName="category" CommandArgument="Rau củ quả" OnCommand="OnCommentCategoryHeader" />
+                            <asp:Button CssClass="ctProduct" Text="Hải sản" runat="server" CommandName="category" CommandArgument="Hải Sản" OnCommand="OnCommentCategoryHeader" />
+                            <asp:Button CssClass="ctProduct" Text="Thực phẩm đông lạnh" runat="server" CommandName="category" CommandArgument="Thực Phẩm Đông Lạnh" OnCommand="OnCommentCategoryHeader" />
+                            <asp:Button CssClass="ctProduct" Text="Sushi & Sashimi Deli" runat="server" CommandName="category" CommandArgument="Sushi & Sashimi Deli" OnCommand="OnCommentCategoryHeader" />
+                            <asp:Button CssClass="ctProduct" Text="Thịt - Cá" runat="server" CommandName="category" CommandArgument="Thịt - Cá" OnCommand="OnCommentCategoryHeader" />
+                       
                     </div>
                 </li>
                 <li>DỊCH VỤ
@@ -89,35 +91,38 @@
                     </svg>
 
                 </div>
-                <div class="payOrder" style="width:190px;padding:0;cursor:pointer">
+                <div class="payOrder" style="width: 190px; padding: 0; cursor: pointer">
                     <p class="ctProduct">Đăng ký</p>
                     <p class="ctProduct">Đăng nhập</p>
                 </div>
             </div>
             <div class="informOrder">
-                <asp:Panel runat="server" ID="p_opendBoxSearch" class="tool2"  >
-                <asp:Button runat="server" ID="btn_opendSearch" OnClick="OnclickOpendSearch" CssClass="buttonOpendSearch" />
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                    stroke="#2d2a6e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="feather feather-search">
-                    <circle cx="11" cy="11" r="8" />
-                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                </svg>
-                
-            </asp:Panel>
+                <asp:Panel runat="server" ID="p_opendBoxSearch" class="tool2">
+                    <asp:Button runat="server" ID="btn_opendSearch" OnClick="OnclickOpendSearch" CssClass="buttonOpendSearch" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                        stroke="#2d2a6e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-search">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+
+                </asp:Panel>
                 <asp:Panel runat="server" ID="p_boxSearch" CssClass="boxSearch">
                     <asp:TextBox runat="server" ID="txt_search" CssClass="txt_searchCss" placeholder="Nhập từ khóa tìm kiếm..."></asp:TextBox>
-                    <asp:Panel runat="server" CssClass="p_search">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                    stroke="#2d2a6e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="feather feather-search">
-                    <circle cx="11" cy="11" r="8" />
-                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                </svg>
-                    </asp:Panel>
+                    <div>
+                        <asp:Panel runat="server" CssClass="p_search">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                stroke="#2d2a6e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="feather feather-search">
+                                <circle cx="11" cy="11" r="8" />
+                                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                            </svg>
+                        </asp:Panel>
+                        <asp:Button runat="server" OnClick="OnclickSearchProduct" CssClass="buttonSearchProduct" />
+                    </div>
                 </asp:Panel>
             </div>
-            
+
             <div class="informOrder">
                 <div class="tool3">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
@@ -128,13 +133,14 @@
                         <line x1="9" y1="10" x2="9" y2="16" />
                         <line x1="15" y1="10" x2="15" y2="16" />
                     </svg>
-                </div>
+               
                 <div class="inform">
 
                     <asp:Label runat="server" ID="lblInform"></asp:Label>
 
 
                 </div>
+                
                 <div class="payOrder">
 
                     <asp:Label runat="server" ID="lblCorrect" Style="text-align: center; font-size: 14px; margin-bottom: 25px"></asp:Label>
@@ -144,7 +150,7 @@
                                 <div class="ordered" style="padding: 5px; border-radius: 5px; border-bottom: 1px gray solid; display: grid; grid-template-columns: 1fr 2fr; align-items: center">
                                     <img class="imgOdered" style="width: 70px; height: 70px; border-radius: 5px;" src="<%# Eval("img0") %>" />
                                     <div>
-                                        <p class="nameOrdered" style="color: #2d2a6e; font-size: 16px; font-weight: 500"><%# Eval("nameItem") %></p>
+                                        <p class="nameOrdered" style="color: #2d2a6e; font-size: 16px; font-weight: 500; margin: 0"><%# Eval("nameItem") %></p>
                                         <div class="priceAndQuantity" style="display: grid; grid-template-columns: 3fr 1fr; align-items: center">
                                             <p class="priceOrdered" style="color: red"><%# Eval("promotion").ToString()=="0"? Eval("price").ToString() : Eval("promotion").ToString() %>đ</p>
                                             <div style="width: 20px; height: 20px; color: #fff; border-radius: 100%; display: flex; justify-content: center; align-items: center; background-color: #2d2a6e" class="quantityOrdered"><%# Eval("quantity") %></div>
@@ -163,16 +169,18 @@
                     <asp:Button runat="server" ID="buttonPay" CssClass="buttonPay" Text="Thanh toán" />
                 </div>
             </div>
-             <div class="user">
-            <div>
-                <asp:Label ID="lblUserName" runat="server" CssClass="user-name" />
-            </div>
-           <div>
-               <asp:Label ID="lblSoDu" runat="server" CssClass="ms-2 text-success fw-bold" />
-           </div>
-                   
-        </div>
+
+                <asp:Repeater runat="server" ID="rptTotalMony">
+                     <ItemTemplate>
+                        <span class="totalMonmey" style=" margin-left:12px;font-size:14px;"><%# Eval("moneys") %>đ</span>
+                     </ItemTemplate>
+                </asp:Repeater>
+
+
+
         </div>
     </div>
+
 </div>
 
+</div>

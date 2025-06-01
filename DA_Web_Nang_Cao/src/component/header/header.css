@@ -2,35 +2,43 @@
 :root {
     --Quicksand: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 }
-.user{
-    display:block;
+
+.user {
+    display: block;
 }
+
 body {
-    font-family:var(--Quicksand)
+    font-family: var(--Quicksand)
 }
-.informOpen{
+
+.informOpen {
     width: fit-content;
     display: flex;
     align-items: center;
 }
+
 .checkOrder {
-    cursor:pointer;
+    cursor: pointer;
     width: fit-content;
     display: flex;
     align-items: center;
 }
+
 .imgVN {
     width: 25px;
     height: auto;
 }
+
 .img {
     padding-right: 10px;
     border-right: 1px white solid;
 }
+
 .open {
     padding-left: 10px;
     color: #fff;
 }
+
 .topHeader {
     padding: 10px 4em;
     background-color: #2d2a6e;
@@ -38,17 +46,20 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+
 .logo {
-   width:7em;
-   height:auto;
+    width: 7em;
+    height: auto;
 }
-.headerMain{
-    background-color:#fff;
+
+.headerMain {
+    background-color: #fff;
     padding: 1em 4em;
     display: grid;
     grid-template-columns: 0.7fr 3fr 1fr;
-    align-items:center;
+    align-items: center;
 }
+
 .user-name {
     font-weight: bold;
     color: #2d2a6e;
@@ -62,51 +73,60 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(109px, 1fr));
     gap: 5px;
 }
-.linkPage>ul>li{
-    cursor:pointer;
-    font-size:16px;
-    font-weight:500;
-    color:#2d2a6e;
-    padding:5px;
-    text-decoration:none;
-    position: relative;
-}
-.linkPage>ul>li:hover {
-    color: #96ae00;
-}
+
+    .linkPage > ul > li {
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 500;
+        color: #2d2a6e;
+        padding: 5px;
+        text-decoration: none;
+        position: relative;
+    }
+
+        .linkPage > ul > li:hover {
+            color: #96ae00;
+        }
+
 .toolBar {
     display: flex;
     align-items: center;
     gap: 10px;
-    
 }
-.tool1,.tool2,.tool3{
-    cursor:pointer;
-    width:2.5em;
-    height:2.5em;
-    border-radius:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+
+.tool1, .tool2, .tool3 {
+    cursor: pointer;
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 .tool1 {
     background-color: #E7F2E4;
-    position:relative;
+    position: relative;
 }
+
 .tool2 {
     background-color: #A8F1FF;
 }
-.tool3{
+
+.tool3 {
     background-color: #FCEFCB;
 }
-.tool1:hover, .tool2:hover, .tool3:hover {
-    background-color: #A4B465;
+
+    .tool1:hover, .tool2:hover, .tool3:hover {
+        background-color: #A4B465;
+    }
+
+.totalMonmey {
+    margin-left: 12px;
+    font-size: 14px;
 }
-.totalMonmey{
-    margin-left:12px;
-    font-size:14px;
-}
-.categoryProduct{
+
+.categoryProduct {
     display: none;
     border-radius: 5px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -117,41 +137,55 @@ body {
     left: -10px;
     z-index: 1;
 }
-.iconDown{
-    text-align:end;
+
+.iconDown {
+    text-align: end;
 }
+
 .ctProduct {
     margin: 0;
     padding: 10px 0 10px 15px;
     color: #2d2a6e;
+    border: none;
+    width: 100%;
+    text-align: start;
+    font-size: 16px;
+    cursor: pointer;
 }
-.ctProduct:hover{
+
+.ctProduct:hover {
     color: #96ae00;
-    background-color:#F5ECD5;
+    background-color: #F5ECD5;
 }
+
 .linkPage > ul > li:hover .categoryProduct, .tool1:hover .categoryProduct {
     display: block;
 }
-.informOrder{
+
+.informOrder {
     position: relative;
+    display: flex;
+    align-items: center;
 }
+
 .inform {
-    background-color:#2d2a6e;
-    color:#fff;
+    background-color: #2d2a6e;
+    color: #fff;
     width: 24px;
-    height:24px;
+    height: 24px;
     border-radius: 100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    position:absolute;
-    top:-12px;
-    right:-12px;
-    z-index:1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -12px;
+    left: 30px;
+    z-index: 1;
 }
+
 .payOrder {
-    display:none;
-    padding:20px;
+    display: none;
+    padding: 20px;
     border-radius: 5px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     width: 300px;
@@ -160,17 +194,21 @@ body {
     top: 100%;
     right: -40px;
 }
-.totalPay{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+
+.totalPay {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
 .buttonShoppingCart {
     background-color: #ffc107;
 }
+
 .buttonPay {
     background-color: #A4B465;
 }
+
 .buttonPay, .buttonShoppingCart {
     cursor: pointer;
     margin-top: 15px;
@@ -180,12 +218,15 @@ body {
     border: none;
     border-radius: 5px;
 }
-.buttonPay:hover{
-    background-color:#96ae00
-}
-.buttonShoppingCart:hover {
-    background-color: #FA812F
-}
+
+    .buttonPay:hover {
+        background-color: #96ae00
+    }
+
+    .buttonShoppingCart:hover {
+        background-color: #FA812F
+    }
+
 .informOrder:hover .payOrder {
     display: block;
 }
@@ -193,42 +234,61 @@ body {
 .informLog:hover .categoryProduct {
     display: block;
 }
+
 .imgOdered {
     width: 50px;
     height: 50px;
     border-radius: 3px;
 }
+
 .boxSearch {
-    position:absolute;
-    top:100%;
-    right:0;
+    border-radius: 10px;
+    position: absolute;
+    top: 100%;
+    right: 0;
     width: 500px;
     border-radius: 3px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    display:grid;
-    grid-template-columns:8fr 1fr;
+    display: grid;
+    grid-template-columns: 8fr 1fr;
 }
-.txt_searchCss{
-    border:none;
-    outline:none;
-    padding:20px;
-    width:100%
+
+.txt_searchCss {
+    border: none;
+    outline: none;
+    padding: 20px;
+    width: 100%;
+    border-radius: 10px
 }
-.p_search{
-    width:100%;
-    height:100%;
-    background-color:#96ae00;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    cursor:pointer;
+
+.p_search {
+    width: 100%;
+    height: 100%;
+    background-color: #96ae00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 0 10px 10px 0;
 }
-.buttonOpendSearch{
-    position:absolute;
-    width:100%;
-    height:100%;
-    border-radius:100%;
-    background-color:transparent;
-    cursor:pointer;
-    border:none;
+
+.buttonOpendSearch {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+}
+
+.buttonSearchProduct {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 11%;
+    height: 100%;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
 }

@@ -8,7 +8,10 @@ using System.Web;
 using System.Web.Services.Description;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using DA_Web_Nang_Cao.src.component.header;
 using DA_Web_Nang_Cao.src.model;
+using static DA_Web_Nang_Cao.src.component.header.headerHome;
+
 namespace DA_Web_Nang_Cao.src.home
 {
     public partial class home : System.Web.UI.Page
@@ -19,9 +22,11 @@ namespace DA_Web_Nang_Cao.src.home
         public List<modelItems> FoodGuide = new List<modelItems>();
         protected void Page_Load(object sender, EventArgs e)
         {
-            
 
+            headerHome.categoryProduct += categoryControl_ClickCategory;
+            headerHome.searchProduct += searchControl_ClickSearch;
             if (!IsPostBack)
+                if (!IsPostBack)
             {
                 LoadData();
             }
@@ -46,9 +51,19 @@ namespace DA_Web_Nang_Cao.src.home
             rptSpecialProduct.DataBind();
             rptSpecialProductPromotion.DataBind();
             rptFoodGuide.DataBind();
+            headerHome.pageloadHeader();
+            headerHome.LoadOrderList();
+           
 
         }
-     
+        public void searchControl_ClickSearch(object sender, SearchEventArgs e)
+        {
+            Response.Redirect("/src/pages/product/product");
+        }
+        public void categoryControl_ClickCategory(object sender, SearchEventArgsCategory e)
+        {
+            Response.Redirect("/src/pages/product/product");
+        }
         private List<modelItems> GetProducts()
         {
             List<modelItems> products = new List<modelItems>();
@@ -216,10 +231,11 @@ namespace DA_Web_Nang_Cao.src.home
         }
         protected void AddOrder_Command(object sender, CommandEventArgs e)
         {
+            HttpCookie cookie = Request.Cookies["loginUser"];
            string productId = e.CommandArgument.ToString();
             string contro = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             int quantity = 1;
-
+            
             foreach (RepeaterItem item in rptSpecialProduct.Items)
             {
                 DropDownList dropDownListValue = item.FindControl("selectQuantity") as DropDownList;
@@ -241,7 +257,7 @@ namespace DA_Web_Nang_Cao.src.home
                 }
             }
             LoadData();
-           headerHome.LoadOrderList();
+          
 
         }
       

@@ -1,16 +1,16 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="home.aspx.cs" Inherits="DA_Web_Nang_Cao.src.home.home"%>
 
-<%@ Register Src="../component/header/headerHome.ascx" TagPrefix="uc" TagName="Header" %>
-<%@ Register Src="../component/footer/footerHome.ascx" TagPrefix="ux" TagName="FooterHome" %>
+<%@ Register Src="../../component/header/headerHome.ascx" TagPrefix="uc" TagName="Header" %>
+<%@ Register Src="../../component/footer/footerHome.ascx" TagPrefix="ux" TagName="FooterHome" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link rel="stylesheet" href="../component/header/header.css" />
-    <link rel="stylesheet" href="../component/footer/footer.css" />
-    <link rel="stylesheet" href="home.css" />
+    <link rel="stylesheet" href="../../component/header/header.css?v=123" />
+    <link rel="stylesheet" href="../../component/footer/footer.css" />
+    <link rel="stylesheet" href="home.css?v=125" />
 
 </head>
 <body>
@@ -22,7 +22,7 @@
                 <h2 class="deal">TOP DEAL</h2>
                 <h2 class="titleVegetable">Rau, Củ, Quả, sạch Giảm giá lớn </h2>
                 <p class="save">Tiết kiệm lên đến 50% cho đơn hàng đầu tiên</p>
-                <button class="homeProduct">Sản phẩm</button>
+                 <asp:HyperLink runat="server" CssClass="homeProduct" Text="Sản phẩm" NavigateUrl="/src/pages/product/product.aspx"></asp:HyperLink>
             </div>
             <div class="showItemProduct">
 
