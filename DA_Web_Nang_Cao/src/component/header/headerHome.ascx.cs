@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -14,54 +15,53 @@ namespace DA_Web_Nang_Cao.src.component.header
     public partial class headerHome : System.Web.UI.UserControl
     {
         public List<modelItems> ListOrderProduct = new List<modelItems>();
-
+        public List<modelUsers> totalMonyProduct = new List<modelUsers>();
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)
             {
+                pageloadHeader();
                 LoadOrderList();
                 p_boxSearch.Visible = false;
-                LoadUserName();
+               
 
             }
 
             
 
         }
-        private void LoadUserName()
+        public List<modelUsers> GetTotalMony()
         {
-            if (Request.Cookies["loginUser"] != null)
+            List<modelUsers> user = new List<modelUsers>();
+            try
             {
-                string idUser = Request.Cookies["loginUser"]["idUsers"];
-                string connStr = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-
-                using (SqlConnection conn = new SqlConnection(connStr))
+                string contro = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+                using (SqlConnection con = new SqlConnection(contro))
                 {
-                    string query = "SELECT names, moneys FROM USERS WHERE idUsers = @id";
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@id", idUser);
-
-                    try
+                    string query = @" SELECT moneys FROM USERS WHERE idUsers=1";
+                    using (SqlCommand cmd = new SqlCommand(query, con))
                     {
-                        conn.Open();
+                        con.Open();
                         SqlDataReader reader = cmd.ExecuteReader();
-                        if (reader.Read())
+                        while (reader.Read())
                         {
-                            string name = reader["names"].ToString();
-                            int money = reader["moneys"] != DBNull.Value ? Convert.ToInt32(reader["moneys"]) : 0;
-
-                            lblUserName.Text = "👤 " + name;
-                            lblSoDu.Text = money.ToString("N0") + " đ"; // VD: 1,000,000 đ
+                            modelUsers modelUsers = new modelUsers
+                            {
+                                moneys = Convert.ToInt32(reader["moneys"]),
+                            };
+                            user.Add(modelUsers);
                         }
-                    }
-                    catch
-                    {
-                        lblUserName.Text = "Không tìm thấy tên";
-                        lblSoDu.Text = "0 đ";
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                Response.Write("Lỗi: " + ex.Message);
+
+            }
+            return user;
         }
+     
         public void OnclickOpendSearch(object sender, EventArgs e)
         {
             if(p_boxSearch.Visible==true) { 
@@ -73,11 +73,20 @@ namespace DA_Web_Nang_Cao.src.component.header
             }
 
         }
-        public void LoadOrderList()
+        public void pageloadHeader()
         {
             ListOrderProduct = GetOrderProduct();
             rptListOder.DataSource = ListOrderProduct;
             rptListOder.DataBind();
+            totalMonyProduct = GetTotalMony();
+            rptTotalMony.DataSource = totalMonyProduct;
+            rptTotalMony.DataBind();
+
+
+        }
+        public void LoadOrderList()
+        {
+            pageloadHeader();
             lblCorrect.Text = "Không có thông tin cho loại dữ liệu này";
             if (ListOrderProduct.Count > 0)
             {
@@ -102,7 +111,7 @@ namespace DA_Web_Nang_Cao.src.component.header
             else
             {
                 lblInform.Text = "0";
-                rptListOder.Visible = false;
+               
             }
         }
         public  List<modelItems> GetOrderProduct()
@@ -160,6 +169,44 @@ namespace DA_Web_Nang_Cao.src.component.header
 
             return modelItems;
         }
+        public class SearchEventArgs : EventArgs
+        {
+            public string search { get; set; }
+
+            public SearchEventArgs(string searchs)
+            {
+                search = searchs;
+            }
+        }
+        public event EventHandler<SearchEventArgs> searchProduct;
+        public void OnclickSearchProduct(object sender, EventArgs e)
+        {
+            if (searchProduct != null)
+            {
+                searchProduct(this, new SearchEventArgs(txt_search.Text));
+
+            }
+
+        }
+        public class SearchEventArgsCategory : EventArgs
+        {
+            public string category { get; set; }
+
+            public SearchEventArgsCategory(string categorys)
+            {
+                category = categorys;
+            }
+        }
+        public event EventHandler<SearchEventArgsCategory> categoryProduct;
+        public void OnCommentCategoryHeader(object sender, CommandEventArgs e)
+        {
+            if (categoryProduct != null)
+            {
+                categoryProduct(this, new SearchEventArgsCategory(e.CommandArgument.ToString()));
+             
+            }
+        }
+
 
     }
 }

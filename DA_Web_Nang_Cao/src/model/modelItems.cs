@@ -22,7 +22,7 @@ namespace DA_Web_Nang_Cao.src.model
             public int quantitySold { get; set; }
             public string kindOfItem { get; set; }
             public int quantity { get; set; }
-
+           public int percentPromotion { get; set; }
 
 
     }
