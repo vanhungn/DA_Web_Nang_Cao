@@ -14,99 +14,203 @@ namespace DA_Web_Nang_Cao.src.admin.pageUser
 {
     public partial class pageUser : System.Web.UI.Page
     {
-     
-        private string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+
+        string connStr = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Kiểm tra quyền admin
-            if (Request.Cookies["admin"] == null)
-            {
-                p_accessDenied.Visible = true;
-                up_main.Visible = false;
-                return;
-            }
-
             if (!IsPostBack)
             {
-                LoadUsers();
+                LoadData();
             }
         }
 
-        // Load tất cả người dùng hoặc theo từ khóa tìm kiếm
-        private void LoadUsers(string keyword = "")
+        private void LoadData(string keyword = "")
         {
-            using (SqlConnection con = new SqlConnection(connectionString))
+            using (SqlConnection conn = new SqlConnection(connStr))
             {
-                string query = @"
-                    SELECT * FROM USERS 
-                    WHERE names LIKE @kw OR userNames LIKE @kw OR emails LIKE @kw OR phones LIKE @kw
-                    ORDER BY idUsers DESC";
+                string query = @"SELECT * FROM USERS";
 
-                SqlCommand cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@kw", "%" + keyword + "%");
+                if (!string.IsNullOrEmpty(keyword))
+                {
+                    query += " WHERE names LIKE @kw OR emails LIKE @kw OR userNames LIKE @kw ";
+                }
+
+                query += " ORDER BY idUsers DESC";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                if (!string.IsNullOrEmpty(keyword))
+                {
+                    cmd.Parameters.AddWithValue("@kw", "%" + keyword + "%");
+                }
 
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
 
-                rpt_users.DataSource = dt;
-                rpt_users.DataBind();
+                gvUsers.DataSource = dt;
+                gvUsers.DataBind();
             }
         }
 
-        // Sự kiện tìm kiếm
-        protected void btn_search_Click(object sender, EventArgs e)
+        protected void btnSearch_Click(object sender, EventArgs e)
         {
-            string keyword = txt_search.Text.Trim();
-            LoadUsers(keyword);
+            string keyword = txtSearch.Text.Trim();
+            LoadData(keyword);
         }
 
-
-        protected void btn_addUser_Click(object sender, EventArgs e)
+        protected void btnReset_Click(object sender, EventArgs e)
         {
-            p_update.Visible = true;
-            uc_updateUser.ClearForm(); // Hàm Clear dùng để xóa dữ liệu cũ
+            txtSearch.Text = "";
+            LoadData();
         }
 
-       
-        // Sự kiện sửa
-        protected void lnk_edit_Click(object sender, EventArgs e)
+        protected void btnThem_Click(object sender, EventArgs e)
         {
-            string idStr = ((System.Web.UI.WebControls.LinkButton)sender).CommandArgument;
-            int id = int.Parse(idStr);
-
-            p_update.Visible = true;
-            uc_updateUser.GetUser(id); // Tải dữ liệu người dùng lên form update
-        }
-
-        // Sự kiện xóa
-        protected void lnk_delete_Click(object sender, EventArgs e)
-        {
-            string idStr = ((System.Web.UI.WebControls.LinkButton)sender).CommandArgument;
-            int id = int.Parse(idStr);
-
-            using (SqlConnection con = new SqlConnection(connectionString))
+            using (SqlConnection conn = new SqlConnection(connStr))
             {
-                string query = "DELETE FROM USERS WHERE idUsers=@id";
-                SqlCommand cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@id", id);
-                con.Open();
-                cmd.ExecuteNonQuery();
+                string query = @"INSERT INTO USERS (names, emails, phones, addresss, userNames, passwords, roles, moneys)
+                                 VALUES (@names, @emails, @phones, @addresss, @userNames, @passwords, @roles, @moneys)";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@names", txtAddNames.Text.Trim());
+                cmd.Parameters.AddWithValue("@emails", txtAddEmails.Text.Trim());
+                cmd.Parameters.AddWithValue("@phones", txtAddPhones.Text.Trim());
+                cmd.Parameters.AddWithValue("@addresss", txtAddAddresss.Text.Trim());
+                cmd.Parameters.AddWithValue("@userNames", txtAddUserNames.Text.Trim());
+                cmd.Parameters.AddWithValue("@passwords", txtAddPasswords.Text.Trim()); // default password, nên mã hóa
+                cmd.Parameters.AddWithValue("@roles", "user"); // mặc định
+                cmd.Parameters.AddWithValue("@moneys", txtAddMoneys.Text.Trim());
+
+                try
+                {
+                    conn.Open();
+                    int rows = cmd.ExecuteNonQuery();
+
+                    if (rows > 0)
+                    {
+                        lblMessage.Text = "✅ Thêm người dùng thành công!";
+                        lblMessage.ForeColor = System.Drawing.Color.Green;
+                        ClearForm();
+                        LoadData();
+                    }
+                    else
+                    {
+                        lblMessage.Text = "❌ Thêm thất bại!";
+                        lblMessage.ForeColor = System.Drawing.Color.Red;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    lblMessage.Text = "❌ Lỗi: " + ex.Message;
+                    lblMessage.ForeColor = System.Drawing.Color.Red;
+                }
             }
-
-            LoadUsers();
         }
 
-        // Khi nhấn nút Cancel trong updateUser.ascx
-        protected void uc_updateUser_CancelClicked(object sender, EventArgs e)
+        private void ClearForm()
         {
-            p_update.Visible = false;
-            LoadUsers();
+            txtAddNames.Text = "";
+            txtAddEmails.Text = "";
+            txtAddPhones.Text = "";
+            txtAddAddresss.Text = "";
+
+            txtAddUserNames.Text = "";
+            txtAddUserNames.Focus();
         }
 
+        protected void gvUsers_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            gvUsers.EditIndex = e.NewEditIndex;
+            LoadData(txtSearch.Text.Trim());
+        }
 
+        protected void gvUsers_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            gvUsers.EditIndex = -1;
+            LoadData(txtSearch.Text.Trim());
+        }
+
+        protected void gvUsers_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            int id = Convert.ToInt32(gvUsers.DataKeys[e.RowIndex].Value);
+            GridViewRow row = gvUsers.Rows[e.RowIndex];
+
+            string names = ((TextBox)row.FindControl("txtNames")).Text.Trim();
+            string emails = ((TextBox)row.FindControl("txtEmails")).Text.Trim();
+            string phones = ((TextBox)row.FindControl("txtPhones")).Text.Trim();
+            string addresss = ((TextBox)row.FindControl("txtAddresss")).Text.Trim();
+            string userNames = ((TextBox)row.FindControl("txtUserNames")).Text.Trim();
+            string passwords = ((TextBox)row.FindControl("txtPasswords")).Text.Trim();
+            string moneyText = ((TextBox)row.FindControl("txtMoneys")).Text.Trim();
+            decimal moneys = 0;
+            decimal.TryParse(moneyText, out moneys);
+
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                string query = @"UPDATE USERS 
+                                 SET names=@names, emails=@emails, phones=@phones, addresss=@addresss, userNames=@userNames , passwords=@passwords, moneys=@moneys
+                                 WHERE idUsers=@id";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@names", names);
+                cmd.Parameters.AddWithValue("@emails", emails);
+                cmd.Parameters.AddWithValue("@phones", phones);
+                cmd.Parameters.AddWithValue("@addresss", addresss);
+                cmd.Parameters.AddWithValue("@userNames", userNames);
+                cmd.Parameters.AddWithValue("@passwords", passwords);
+                cmd.Parameters.AddWithValue("@moneys", moneys);
+                cmd.Parameters.AddWithValue("@id", id);
+
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+
+                    gvUsers.EditIndex = -1;
+                    LoadData(txtSearch.Text.Trim());
+                }
+                catch (Exception ex)
+                {
+                    lblMessage.Text = "❌ Cập nhật lỗi: " + ex.Message;
+                    lblMessage.ForeColor = System.Drawing.Color.Red;
+                }
+            }
+        }
+        protected void gvUsers_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvUsers.PageIndex = e.NewPageIndex;
+            LoadData(txtSearch.Text.Trim());
+        }
+
+        protected void gvUsers_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            int id = Convert.ToInt32(gvUsers.DataKeys[e.RowIndex].Value);
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                conn.Open();
+
+                // Xóa tất cả đơn hàng trước
+                string deleteOrders = "DELETE FROM ORDERS WHERE idUsers=@id";
+                SqlCommand cmdOrders = new SqlCommand(deleteOrders, conn);
+                cmdOrders.Parameters.AddWithValue("@id", id);
+                cmdOrders.ExecuteNonQuery();
+
+                // Xóa người dùng
+                string deleteUser = "DELETE FROM USERS WHERE idUsers=@id";
+                SqlCommand cmdUser = new SqlCommand(deleteUser, conn);
+                cmdUser.Parameters.AddWithValue("@id", id);
+                cmdUser.ExecuteNonQuery();
+
+                lblMessage.Text = "✅ Xóa người dùng và đơn hàng thành công!";
+                lblMessage.ForeColor = System.Drawing.Color.Green;
+                LoadData(txtSearch.Text.Trim());
+            }
+        }
+
+        protected void gvUsers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
-    
 }
-

@@ -74,19 +74,33 @@ body {
     gap: 5px;
 }
 
-    .linkPage > ul > li {
+.linkPage > ul > li {
         cursor: pointer;
         font-size: 16px;
         font-weight: 500;
         color: #2d2a6e;
         padding: 5px;
         text-decoration: none;
+        display:flex;
+        align-items:center;
+        gap:5px;
         position: relative;
-    }
-
-        .linkPage > ul > li:hover {
-            color: #96ae00;
-        }
+      
+}
+.hyperLinkHeader {
+    color: #2d2a6e;
+    text-decoration: none;
+}
+.hyperLinkHeader:hover{
+      color: #96ae00;
+}
+.linkPage > ul > li:hover {
+    color: #96ae00;
+}
+.linkPageChoose {
+    color: #96ae00;
+    text-decoration:none;
+}
 
 .toolBar {
     display: flex;
@@ -153,10 +167,10 @@ body {
     cursor: pointer;
 }
 
-.ctProduct:hover {
-    color: #96ae00;
-    background-color: #F5ECD5;
-}
+    .ctProduct:hover {
+        color: #96ae00;
+        background-color: #F5ECD5;
+    }
 
 .linkPage > ul > li:hover .categoryProduct, .tool1:hover .categoryProduct {
     display: block;

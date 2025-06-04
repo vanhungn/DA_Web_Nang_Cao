@@ -15,6 +15,69 @@ namespace DA_Web_Nang_Cao.src.component.header
     {
 
         /// <summary>
+        /// lbl_homeLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lbl_homeLink;
+
+        /// <summary>
+        /// lbl_IntroduceLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_IntroduceLink;
+
+        /// <summary>
+        /// lbl_ProductLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lbl_ProductLink;
+
+        /// <summary>
+        /// lbl_serviceLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_serviceLink;
+
+        /// <summary>
+        /// lbl_newsLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_newsLink;
+
+        /// <summary>
+        /// lbl_LibraryLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_LibraryLink;
+
+        /// <summary>
+        /// lbl_ContactLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lbl_ContactLink;
+
+        /// <summary>
         /// p_opendBoxSearch control.
         /// </summary>
         /// <remarks>

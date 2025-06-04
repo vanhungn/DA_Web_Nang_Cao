@@ -65,8 +65,7 @@ namespace DA_Web_Nang_Cao.src.admin.pageItems.updateItem
                         txt_totalQuantity.Text = reader["totalQuantity"].ToString();
                         txt_quantitySold.Text = reader["quantitySold"].ToString();
                         txt_descs.Text = reader["descs"].ToString();
-                        txt_weights.Text = reader["weights"].ToString();
-                        txt_origin.Text = reader["origin"].ToString();
+                       
                     }
 
                 }
@@ -144,11 +143,11 @@ namespace DA_Web_Nang_Cao.src.admin.pageItems.updateItem
                 cmd.Parameters.AddWithValue("@kindOfItem", d_kindOfItem.SelectedValue);
                 cmd.Parameters.AddWithValue("@descs", txt_descs.Text);
                 cmd.Parameters.AddWithValue("@satus", d_statusCreate.SelectedValue);
-                cmd.Parameters.AddWithValue("@weights", txt_weights.Text);
+                cmd.Parameters.AddWithValue("@weights", d_weightCreate.SelectedValue);
                 cmd.Parameters.AddWithValue("@img0", imgUpdoad0);
                 cmd.Parameters.AddWithValue("@img1", imgUpdoad1);
                 cmd.Parameters.AddWithValue("@img2", imgUpdoad2);
-                cmd.Parameters.AddWithValue("@origin", txt_origin.Text);
+                cmd.Parameters.AddWithValue("@origin", d_originCreate.SelectedValue);
                 cmd.Parameters.AddWithValue("@dates", DateTime.Now.ToString());
                 cmd.Parameters.AddWithValue("@idItems", idItem);
                 con.Open();

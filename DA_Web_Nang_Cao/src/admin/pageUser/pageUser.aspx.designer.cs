@@ -15,84 +15,138 @@ namespace DA_Web_Nang_Cao.src.admin.pageUser
     {
 
         /// <summary>
-        /// ScriptManager1 control.
+        /// txtSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        protected global::System.Web.UI.WebControls.TextBox txtSearch;
 
         /// <summary>
-        /// up_main control.
+        /// btnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel up_main;
+        protected global::System.Web.UI.WebControls.Button btnSearch;
 
         /// <summary>
-        /// p_accessDenied control.
+        /// btnReset control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel p_accessDenied;
+        protected global::System.Web.UI.WebControls.Button btnReset;
 
         /// <summary>
-        /// txt_search control.
+        /// gvUsers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_search;
+        protected global::System.Web.UI.WebControls.GridView gvUsers;
 
         /// <summary>
-        /// btn_search control.
+        /// pnlAdd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_search;
+        protected global::System.Web.UI.WebControls.Panel pnlAdd;
 
         /// <summary>
-        /// btn_addUser control.
+        /// txtAddNames control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_addUser;
+        protected global::System.Web.UI.WebControls.TextBox txtAddNames;
 
         /// <summary>
-        /// rpt_users control.
+        /// txtAddEmails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpt_users;
+        protected global::System.Web.UI.WebControls.TextBox txtAddEmails;
 
         /// <summary>
-        /// p_update control.
+        /// txtAddPhones control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel p_update;
+        protected global::System.Web.UI.WebControls.TextBox txtAddPhones;
 
         /// <summary>
-        /// uc_updateUser control.
+        /// txtAddUserNames control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DA_Web_Nang_Cao.src.admin.pageUser.updateUser uc_updateUser;
+        protected global::System.Web.UI.WebControls.TextBox txtAddUserNames;
+
+        /// <summary>
+        /// txtAddPasswords control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddPasswords;
+
+        /// <summary>
+        /// txtAddRoles control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddRoles;
+
+        /// <summary>
+        /// txtAddAddresss control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddAddresss;
+
+        /// <summary>
+        /// txtAddMoneys control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddMoneys;
+
+        /// <summary>
+        /// btnThem control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnThem;
+
+        /// <summary>
+        /// lblMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessage;
     }
 }

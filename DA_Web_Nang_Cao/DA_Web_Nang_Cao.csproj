@@ -153,9 +153,10 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
-    <Content Include="ExternalCallback.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="picture\tai-hinh-nen-dep-mien-phi.jpg" />
+    <Content Include="picture\z6355196038453_673f72defd7591fc1d379b37083b66d5.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -193,26 +194,28 @@
     <Content Include="src\admin\logInAdmin\loginAdmin.aspx" />
     <Content Include="src\admin\logInAdmin\loginAdmin.css" />
     <Content Include="src\admin\masterAdmin\pageAdmin.css" />
+    <Content Include="src\admin\pageContact\Contact.css" />
     <Content Include="src\admin\pageContact\pageContact.aspx" />
     <Content Include="src\admin\pageItems\detailItems\detailItems.ascx" />
     <Content Include="src\admin\pageItems\detailItems\detailItems.css" />
     <Content Include="src\admin\pageItems\pageItem.aspx" />
     <Content Include="src\admin\pageItems\pageItem.css" />
     <Content Include="src\admin\pageItems\updateItem\updateItem.ascx" />
-    <Content Include="src\admin\pageOrder\pageOrder.aspx" />
     <Content Include="src\admin\pageUser\pageUser.aspx" />
     <Content Include="src\admin\pageUser\pageUser.css" />
-    <Content Include="src\admin\pageUser\updateUser.ascx" />
+    <Content Include="src\ChiTietSanPham\ChiTietSanPham.aspx" />
+    <Content Include="src\ChiTietSanPham\ChiTietSanPham.css" />
     <Content Include="src\component\footer\footer.css" />
     <Content Include="src\component\footer\footerHome.ascx" />
     <Content Include="src\component\header\header.css" />
     <Content Include="src\component\header\headerHome.ascx" />
-    <Content Include="src\dangkygangnhap\dangky.aspx" />
-    <Content Include="src\dangkygangnhap\ExternalLogin.aspx" />
-    <Content Include="src\dangkygangnhap\facebook.png" />
-    <Content Include="src\dangkygangnhap\google-icon.png" />
-    <Content Include="src\dangkygangnhap\login.aspx" />
-    <Content Include="src\dangkygangnhap\zalo.png" />
+    <Content Include="src\dangkydangnhap\dangky.aspx" />
+    <Content Include="src\dangkydangnhap\login.aspx" />
+    <Content Include="src\GioHang\GioHang.aspx" />
+    <Content Include="src\GioHang\GioHang.css" />
+    <Content Include="src\LienHe\anh lien he.jpg" />
+    <Content Include="src\LienHe\LienHe.aspx" />
+    <Content Include="src\LienHe\LienHe.css" />
     <Content Include="src\pages\home\home.aspx" />
     <Content Include="src\pages\home\home.css" />
     <Content Include="src\pages\product\product.aspx" />
@@ -220,7 +223,6 @@
     <Content Include="src\thanhtoan\thanhtoan.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
-    <Content Include="src\pages\home\Bundle.config" />
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
@@ -246,12 +248,6 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ExternalCallback.aspx.cs">
-      <DependentUpon>ExternalCallback.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ExternalCallback.aspx.designer.cs">
-      <DependentUpon>ExternalCallback.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -313,13 +309,6 @@
     <Compile Include="src\admin\pageItems\updateItem\updateItem.ascx.designer.cs">
       <DependentUpon>updateItem.ascx</DependentUpon>
     </Compile>
-    <Compile Include="src\admin\pageOrder\pageOrder.aspx.cs">
-      <DependentUpon>pageOrder.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="src\admin\pageOrder\pageOrder.aspx.designer.cs">
-      <DependentUpon>pageOrder.aspx</DependentUpon>
-    </Compile>
     <Compile Include="src\admin\pageUser\pageUser.aspx.cs">
       <DependentUpon>pageUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -327,11 +316,12 @@
     <Compile Include="src\admin\pageUser\pageUser.aspx.designer.cs">
       <DependentUpon>pageUser.aspx</DependentUpon>
     </Compile>
-    <Compile Include="src\admin\pageUser\updateUser.ascx.cs">
-      <DependentUpon>updateUser.ascx</DependentUpon>
+    <Compile Include="src\ChiTietSanPham\ChiTietSanPham.aspx.cs">
+      <DependentUpon>ChiTietSanPham.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="src\admin\pageUser\updateUser.ascx.designer.cs">
-      <DependentUpon>updateUser.ascx</DependentUpon>
+    <Compile Include="src\ChiTietSanPham\ChiTietSanPham.aspx.designer.cs">
+      <DependentUpon>ChiTietSanPham.aspx</DependentUpon>
     </Compile>
     <Compile Include="src\component\footer\footerHome.ascx.cs">
       <DependentUpon>footerHome.ascx</DependentUpon>
@@ -347,26 +337,35 @@
     <Compile Include="src\component\header\headerHome.ascx.designer.cs">
       <DependentUpon>headerHome.ascx</DependentUpon>
     </Compile>
-    <Compile Include="src\dangkygangnhap\dangky.aspx.cs">
+    <Compile Include="src\dangkydangnhap\dangky.aspx.cs">
+      <DependentUpon>dangky.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="src\dangkydangnhap\dangky.aspx.designer.cs">
       <DependentUpon>dangky.aspx</DependentUpon>
     </Compile>
-    <Compile Include="src\dangkygangnhap\dangky.aspx.designer.cs">
-      <DependentUpon>dangky.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="src\dangkygangnhap\ExternalLogin.aspx.cs">
-      <DependentUpon>ExternalLogin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="src\dangkygangnhap\ExternalLogin.aspx.designer.cs">
-      <DependentUpon>ExternalLogin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="src\dangkygangnhap\login.aspx.cs">
+    <Compile Include="src\dangkydangnhap\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="src\dangkygangnhap\login.aspx.designer.cs">
+    <Compile Include="src\dangkydangnhap\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="src\dangkygangnhap\Starup.cs" />
+    <Compile Include="src\GioHang\GioHang.aspx.cs">
+      <DependentUpon>GioHang.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="src\GioHang\GioHang.aspx.designer.cs">
+      <DependentUpon>GioHang.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="src\LienHe\LienHe.aspx.cs">
+      <DependentUpon>LienHe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="src\LienHe\LienHe.aspx.designer.cs">
+      <DependentUpon>LienHe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="src\model\modelItems.cs" />
     <Compile Include="src\pages\home\home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -374,19 +373,21 @@
     <Compile Include="src\pages\home\home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="src\model\modelItems.cs" />
     <Compile Include="src\pages\product\product.aspx.cs">
       <DependentUpon>product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="src\pages\product\product.aspx.designer.cs">
       <DependentUpon>product.aspx</DependentUpon>
     </Compile>
     <Compile Include="src\thanhtoan\thanhtoan.aspx.cs">
       <DependentUpon>thanhtoan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="src\thanhtoan\thanhtoan.aspx.designer.cs">
       <DependentUpon>thanhtoan.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Startup1.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -397,7 +398,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="picture\" />
     <Folder Include="src\picture\" />
   </ItemGroup>
   <ItemGroup>

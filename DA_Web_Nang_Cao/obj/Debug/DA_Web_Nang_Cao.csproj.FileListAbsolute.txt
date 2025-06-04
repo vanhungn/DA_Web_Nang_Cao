@@ -145,8 +145,6 @@ D:\doan4\DA_Web_Nang_Cao\bin\Microsoft.Owin.Security.Google.xml
 D:\doan4\DA_Web_Nang_Cao\bin\Microsoft.Owin.Security.OAuth.xml
 D:\doan4\DA_Web_Nang_Cao\bin\Microsoft.Owin.Security.Facebook.dll
 D:\doan4\DA_Web_Nang_Cao\bin\Microsoft.Owin.Security.Facebook.xml
-C:\Users\NGUYEN VAN HUNG\source\repos\DO_AN_WEB\DA_Web_Nang_Cao\obj\Debug\DA_Web_Nang_Cao.csproj.AssemblyReference.cache
-C:\Users\NGUYEN VAN HUNG\source\repos\DO_AN_WEB\DA_Web_Nang_Cao\obj\Debug\DA_Web_Nang_Cao.csproj.CoreCompileInputs.cache
 C:\Users\NGUYEN VAN HUNG\source\repos\DO_AN_WEB\DA_Web_Nang_Cao\bin\DA_Web_Nang_Cao.dll.config
 C:\Users\NGUYEN VAN HUNG\source\repos\DO_AN_WEB\DA_Web_Nang_Cao\bin\DA_Web_Nang_Cao.dll
 C:\Users\NGUYEN VAN HUNG\source\repos\DO_AN_WEB\DA_Web_Nang_Cao\bin\DA_Web_Nang_Cao.pdb
@@ -216,6 +214,8 @@ C:\Users\NGUYEN VAN HUNG\source\repos\DO_AN_WEB\DA_Web_Nang_Cao\bin\Newtonsoft.J
 C:\Users\NGUYEN VAN HUNG\source\repos\DO_AN_WEB\DA_Web_Nang_Cao\bin\System.Web.Optimization.xml
 C:\Users\NGUYEN VAN HUNG\source\repos\DO_AN_WEB\DA_Web_Nang_Cao\bin\Antlr3.Runtime.pdb
 C:\Users\NGUYEN VAN HUNG\source\repos\DO_AN_WEB\DA_Web_Nang_Cao\bin\Microsoft.AspNet.FriendlyUrls.xml
+C:\Users\NGUYEN VAN HUNG\source\repos\DO_AN_WEB\DA_Web_Nang_Cao\obj\Debug\DA_Web_Nang_Cao.csproj.AssemblyReference.cache
+C:\Users\NGUYEN VAN HUNG\source\repos\DO_AN_WEB\DA_Web_Nang_Cao\obj\Debug\DA_Web_Nang_Cao.csproj.CoreCompileInputs.cache
 C:\Users\NGUYEN VAN HUNG\source\repos\DO_AN_WEB\DA_Web_Nang_Cao\obj\Debug\DA_Web_Nang_Cao.csproj.CopyComplete
 C:\Users\NGUYEN VAN HUNG\source\repos\DO_AN_WEB\DA_Web_Nang_Cao\obj\Debug\DA_Web_Nang_Cao.dll
 C:\Users\NGUYEN VAN HUNG\source\repos\DO_AN_WEB\DA_Web_Nang_Cao\obj\Debug\DA_Web_Nang_Cao.pdb
