@@ -63,8 +63,8 @@ namespace DA_Web_Nang_Cao.src.admin.pageItems
             totalPage = GetTotalRows("","","");
             rpt_totalPage.DataSource =totalPage;
             rpt_totalPage.DataBind();
-         
 
+          
 
         }
         public void OnclickSubmitCreate(object sender, EventArgs e)
@@ -84,11 +84,11 @@ namespace DA_Web_Nang_Cao.src.admin.pageItems
                     cmd.Parameters.AddWithValue("@kindOfItem", d_kindOfItem.SelectedValue);
                     cmd.Parameters.AddWithValue("@descs", txt_descs.Text);
                     cmd.Parameters.AddWithValue("@satus", d_statusCreate.SelectedValue);
-                    cmd.Parameters.AddWithValue("@weights", txt_weights.Text);
+                    cmd.Parameters.AddWithValue("@weights", d_weightCreate.SelectedValue);
                     cmd.Parameters.AddWithValue("@img0", imgUpdoad0);
                     cmd.Parameters.AddWithValue("@img1", imgUpdoad1);
                     cmd.Parameters.AddWithValue("@img2", imgUpdoad2);
-                    cmd.Parameters.AddWithValue("@origin", txt_origin.Text);
+                    cmd.Parameters.AddWithValue("@origin", d_originCreate.SelectedValue);
                     cmd.Parameters.AddWithValue("@dates", DateTime.Now.ToString());
                     con.Open();
                     cmd.ExecuteNonQuery();
@@ -159,6 +159,28 @@ namespace DA_Web_Nang_Cao.src.admin.pageItems
                
             }
         }
+        public void bgrColorStatus(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+               
+                Panel panel = (Panel)e.Item.FindControl("panelbgrColor");
+                
+                modelItems item = (modelItems)e.Item.DataItem;
+
+                
+                if (item.satus == "Còn hàng")
+                {
+                    panel.Style["background-color"] = "#28a745"; 
+                }
+                else if(item.satus =="Hết hàng")
+                {
+                    panel.Style["background-color"] = "#F4631E"; 
+                }
+              
+            }
+        }
+
         protected void rpt_pastPage(object source, RepeaterCommandEventArgs e)
         {
             int past = Convert.ToInt32(e.CommandArgument);
@@ -253,7 +275,7 @@ namespace DA_Web_Nang_Cao.src.admin.pageItems
                             img2 = reader["img2"].ToString()
                         };
                         modelItems.Add(item);
-
+                       
                     }
                     if (!string.IsNullOrWhiteSpace(search))
                     {

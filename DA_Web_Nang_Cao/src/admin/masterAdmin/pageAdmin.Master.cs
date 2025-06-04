@@ -19,10 +19,7 @@ namespace DA_Web_Nang_Cao.src.admin.masterAdmin
             else if(url == "/src/admin/pageItems/pageItem"){
                 p_boxNavigationBar2.CssClass = "boxNavigationChoose";
             }
-            else if (url == "/src/admin/pageOrder/pageOrder")
-            {
-                p_boxNavigationBar3.CssClass = "boxNavigationChoose";
-            }
+            
             else if (url == "/src/admin/pageContact/pageContact")
             {
                 p_boxNavigationBar4.CssClass = "boxNavigationChoose";
@@ -37,10 +34,7 @@ namespace DA_Web_Nang_Cao.src.admin.masterAdmin
         {
             Response.Redirect("/src/admin/pageItems/pageItem");
         }
-        public void OnclickButtonNavigate2(object sender, EventArgs e)
-        {
-            Response.Redirect("/src/admin/pageOrder/pageOrder");
-        }
+      
         public void OnclickButtonNavigate3(object sender, EventArgs e)
         {
             Response.Redirect("/src/admin/pageContact/pageContact");

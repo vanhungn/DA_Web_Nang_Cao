@@ -27,9 +27,12 @@
         </div>
         <div class="linkPage">
             <ul>
-                <li>TRANG CHỦ</li>
-                <li>GIỚI THIỆU</li>
-                <li>SẢN PHẨM
+                <li>
+                    <asp:HyperLink CssClass="hyperLinkHeader" runat="server" ID="lbl_homeLink" NavigateUrl="/src/pages/home/home">TRANG CHỦ</asp:HyperLink>
+
+                </li>
+                <li><asp:Label runat="server" ID="lbl_IntroduceLink">GIỚI THIỆU</asp:Label> </li>
+                <li><asp:HyperLink CssClass="hyperLinkHeader" runat="server" ID="lbl_ProductLink" NavigateUrl="/src/pages/product/product">SẢN PHẨM</asp:HyperLink>
                    <svg class="iconDown" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#2d2a6e" viewBox="0 0 16 16">
                        <path fill-rule="evenodd" d="M8 1v12.293l3.646-3.647.708.708L8 15l-4.354-4.354.708-.708L8 13.293V1z" />
                    </svg>
@@ -44,7 +47,7 @@
                        
                     </div>
                 </li>
-                <li>DỊCH VỤ
+                <li><asp:Label runat="server" ID="lbl_serviceLink">DỊCH VỤ</asp:Label>
                     <svg class="iconDown" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#2d2a6e" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M8 1v12.293l3.646-3.647.708.708L8 15l-4.354-4.354.708-.708L8 13.293V1z" />
                     </svg>
@@ -54,7 +57,7 @@
                     </div>
 
                 </li>
-                <li>TIN TỨC
+                <li><asp:Label runat="server" ID="lbl_newsLink">TIN TỨC</asp:Label>
                     
                     <svg class="iconDown" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#2d2a6e" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M8 1v12.293l3.646-3.647.708.708L8 15l-4.354-4.354.708-.708L8 13.293V1z" />
@@ -64,7 +67,7 @@
                         <p class="ctProduct">Sống Khỏe</p>
                     </div>
                 </li>
-                <li>THƯ VIỆN
+                <li><asp:Label runat="server" ID="lbl_LibraryLink">THƯ VIỆN</asp:Label>
                    <svg class="iconDown" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#2d2a6e" viewBox="0 0 16 16">
                        <path fill-rule="evenodd" d="M8 1v12.293l3.646-3.647.708.708L8 15l-4.354-4.354.708-.708L8 13.293V1z" />
                    </svg>
@@ -73,7 +76,7 @@
                         <p class="ctProduct">Video</p>
                     </div>
                 </li>
-                <li>LIÊN HỆ</li>
+                <li><asp:HyperLink CssClass="hyperLinkHeader" NavigateUrl="/src/LienHe/LienHe" runat="server" ID="lbl_ContactLink">LIÊN HỆ</asp:HyperLink></li>
 
             </ul>
 
@@ -165,19 +168,17 @@
                         <span>Tổng tiền:</span>
                         <asp:Label runat="server" ID="totalMoney" Style="color: #A4B465"></asp:Label>
                     </div>
-                    <asp:Button runat="server" ID="buttonShoppingCart" CssClass="buttonShoppingCart" Text="Giỏ hàng" />
-                    <asp:Button runat="server" ID="buttonPay" CssClass="buttonPay" Text="Thanh toán" />
+                    <asp:Button runat="server" ID="buttonShoppingCart" CssClass="buttonShoppingCart" Text="Giỏ hàng" OnClick="OnclickGioHang" />
+
+                    <asp:Button runat="server" ID="buttonPay" CssClass="buttonPay" Text="Thanh toán"  OnClick="OnclickThanhToan"/>
                 </div>
             </div>
 
                 <asp:Repeater runat="server" ID="rptTotalMony">
                      <ItemTemplate>
-                        <span class="totalMonmey" style=" margin-left:12px;font-size:14px;"><%# Eval("moneys") %>đ</span>
+                        <span class="totalMonmey" style=" margin-left:12px;font-size:14px;"><%# Eval("moneys") %></span>
                      </ItemTemplate>
                 </asp:Repeater>
-
-
-
         </div>
     </div>
 

@@ -2,8 +2,8 @@
 <%@ Register Src="~/src/admin/pageItems/updateItem/updateItem.ascx" TagPrefix="ud" TagName="Update" %>
 <%@ Register Src="~/src/admin/pageItems/detailItems/detailItems.ascx" TagPrefix="dt" TagName="Detail" %>
 <asp:Content ID="ContentHead" ContentPlaceHolderID="HeadContentItem" runat="server">
-    <link rel="stylesheet" href="pageItem.css?v=124" />
-    <link rel="stylesheet" href="./detailItems/detailItems.css?v=124" />
+    <link rel="stylesheet" href="pageItem.css?v=125" />
+    <link rel="stylesheet" href="./detailItems/detailItems.css?v=125" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
@@ -77,10 +77,24 @@
 
                 </div>
                 <div class="formCreateAndFixRight">
-                    <asp:TextBox runat="server" ID="txt_weights" CssClass="txtcreate" placeholder="Cân nặng sản phẩm..."></asp:TextBox>
-                    <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_weights" ErrorMessage="⚠️ Bạn vui lòng nhập cân nặng" CssClass="errorFormCreateAndFix"></asp:RequiredFieldValidator>
-                    <asp:TextBox runat="server" ID="txt_origin" CssClass="txtcreate" placeholder="Nơi xuất xứ sản phẩm..."></asp:TextBox>
-                    <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_origin" ErrorMessage="⚠️ Bạn vui lòng nhập nơi xuất xứ" CssClass="errorFormCreateAndFix"></asp:RequiredFieldValidator>
+                    <asp:DropDownList runat="server" ID="d_weightCreate" CssClass="txtcreate">
+                        <asp:ListItem Text="Khối lượng" Value="" />
+                        <asp:ListItem Text="300g" Value="300g"></asp:ListItem>
+                        <asp:ListItem Value="500g" Text="500g"></asp:ListItem>
+                        <asp:ListItem Value="1kg" Text="1kg"></asp:ListItem>
+                        <asp:ListItem Value="1.5kg" Text="1.5kg"></asp:ListItem>
+                        <asp:ListItem Value="2kg" Text="2kg"></asp:ListItem>
+                    </asp:DropDownList>
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="d_weightCreate" ErrorMessage="⚠️ Bạn vui lòng nhập cân nặng" CssClass="errorFormCreateAndFix"></asp:RequiredFieldValidator>
+                    <asp:DropDownList runat="server" ID="d_originCreate" CssClass="txtcreate">
+                        <asp:ListItem Text="Xuất xứ" Value="" />
+                        <asp:ListItem Text="Hà Nội" Value="Hà Nội"></asp:ListItem>
+                        <asp:ListItem Value="Hồ Chí Minh" Text="Hồ Chí Minh"></asp:ListItem>
+                        <asp:ListItem Value="Lâm Đồng" Text="Lâm Đồng"></asp:ListItem>
+                        <asp:ListItem Value="Tiên Giang" Text="Tiên Giang"></asp:ListItem>
+                        <asp:ListItem Value="Đắk Lắk" Text="Đắk Lắk"></asp:ListItem>
+                    </asp:DropDownList>
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="d_originCreate" ErrorMessage="⚠️ Bạn vui lòng nhập nơi xuất xứ" CssClass="errorFormCreateAndFix"></asp:RequiredFieldValidator>
                     <div class="chooseImg">
                         <div>
                             <div>
@@ -141,7 +155,7 @@
             </tr>
             <asp:UpdatePanel ID="upListItems" runat="server">
     <ContentTemplate>
-            <asp:Repeater runat="server" ID="rpt_ListItemsPageAdmin">
+            <asp:Repeater runat="server" ID="rpt_ListItemsPageAdmin" OnItemDataBound="bgrColorStatus">
                 <ItemTemplate>
                     <tr>
                         <td><%# Eval("idItem") %></td>
@@ -157,8 +171,10 @@
 
 
                         <td>
-                            <div style="padding: 8px; border-radius: 5px; background-color: #28a745; box-shadow: 0 4px 8px rgba(46, 204, 113, 0.4); text-align: center"><%# Eval("satus") %></div>
+                            <asp:Panel runat="server" ID="panelbgrColor" style="padding: 8px; border-radius: 5px;  box-shadow: 0 4px 8px rgba(46, 204, 113, 0.4); text-align: center"><%# Eval("satus") %></asp:Panel>
+                           
                         </td>
+                        
                         <td>
                             <asp:Button runat="server" ID="btn_edit" Text="Chi Tiết" Style="padding: 8px; background-color: #007bff; border: none; color: white; box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4); border-radius: 5px;cursor:pointer"  CommandName="detail" CommandArgument='<%# Eval("idItem") %>' OnCommand="OnclickDetailItem" CausesValidation="false" UseSubmitBehavior="false"/>
                             <asp:Button runat="server" ID="btn_fix" Text="Sửa" Style="padding: 8px; background-color: #ffc107; border: none; color: black; box-shadow: 0 4px 8px rgba(255, 193, 7, 0.4); border-radius: 5px;cursor:pointer" CommandName="update" CommandArgument='<%# Eval("idItem") %>' OnCommand="OnclickUpdateItem" CausesValidation="false" UseSubmitBehavior="false" />

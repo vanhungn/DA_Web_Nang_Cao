@@ -1,0 +1,305 @@
+﻿:root {
+    --Quicksand: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+body {
+    font-family: var(--Quicksand);
+    background-color: rgba(200, 200, 200, 0.2);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.topDeal {
+    padding-left: 10%;
+    margin-bottom: 40px;
+    width: 100%;
+    height: 85vh;
+    background-image: url("https://demo037187.web30s.vn/datafiles/40264/upload/images/banner/slider-2.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.deal {
+    font-size: 34px;
+    font-weight: 300;
+    color: #96ae00;
+}
+
+.titleVegetable {
+    font-size: 34px;
+    color: #FA812F;
+}
+
+.homeProduct {
+    border: none;
+    width: fit-content;
+    border-radius: 30px;
+    padding: 15px 45px;
+    color: #fff;
+    background-color: #96ae00;
+    font-size: 18px;
+    margin-top: 20px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+    .homeProduct:hover {
+        background-color: #2d2a6e;
+    }
+
+.showItemProduct {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.listCategoryProduct, .listNewProduct {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+    gap: 20px;
+}
+
+.titleCategoryProduct {
+    opacity: 0.8;
+    text-align: center;
+    color: #2d2a6e;
+    font-size: 15px;
+}
+
+.category {
+    background-color: #fff;
+    padding: 25px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.imgCa {
+    width: 50px;
+    height: auto;
+}
+
+.cleanFood, .foodGuide {
+    margin: 60px 0;
+}
+
+.food {
+    color: #96ae00;
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.newProduct {
+    color: #2d2a6e;
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.productItem {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 5px;
+    padding-bottom: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3fr 1fr;
+    gap: 15px;
+}
+
+.imgNewProduct {
+    border-radius: 5px 5px 0 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nameNewProduct {
+    color: #2d2a6e;
+    text-align: center;
+}
+
+.priceNewProduct {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.priceSell, .priceSellItemProduct {
+    font-size: 14px;
+    color: red;
+}
+
+.priceSelled, .priceSelledItemProduct {
+    font-size: 14px;
+    color: gray;
+}
+/*----------------/*/
+.titleSP {
+    color: #2d2a6e;
+    text-align: end;
+}
+
+.specialProduct {
+    margin-top: 60px;
+    background-color: #fff;
+    width: 100%;
+}
+
+.titleTimeSpecialProduct {
+    padding: 20px;
+    border-bottom: 1px gray solid;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.timeSpecialProduct {
+    display: flex;
+    gap: 15px;
+}
+
+.timeSell {
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #96ae00;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.itemProduct {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.imgItemProduct {
+    width: 100%;
+    height: 100%;
+}
+
+.titleSpecialItems {
+    color: #2d2a6e;
+    font-size: 32px;
+}
+
+.priceSelledItemProduct {
+    font-size: 16px;
+}
+
+.priceSellItemProduct {
+    font-size: 22px;
+}
+
+.inforImgItemProduct {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.priceNewItemsProduct {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.addItemsProduct {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.freshHome {
+    margin: 50px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.freshFood1 {
+    width: 100%;
+    background-image: url("https://demo037187.web30s.vn/datafiles/40264/upload/images/banner/banner-1.png");
+}
+
+.freshFood2 {
+    width: 100%;
+    background-image: url("https://demo037187.web30s.vn/datafiles/40264/upload/images/banner/banner-2.png");
+}
+
+.freshFood3 {
+    width: 100%;
+    background-image: url("https://demo037187.web30s.vn/datafiles/40264/upload/images/banner/banner-3.png");
+}
+
+.freshFood1, .freshFood2, .freshFood3 {
+    border-radius: 10px;
+    padding: 50px 20px;
+    background-size: 100% auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 20px;
+}
+
+.buttonFreshHome {
+    border: none;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+    color: orange;
+    background-color: #fff;
+}
+
+.titleFreshHome {
+    font-size: 18px;
+    color: #2d2a6e;
+}
+
+.addOrder {
+    cursor: pointer;
+    background-color: #fff;
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    border: 1px #808080 solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .addOrder:hover {
+        background-color: orange;
+    }
+
+.foodSelectionHuide {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.learnMore {
+    cursor: pointer;
+    margin-top: 10px;
+    color: #96ae00;
+}
+
+    .learnMore:hover {
+        color: orange;
+    }

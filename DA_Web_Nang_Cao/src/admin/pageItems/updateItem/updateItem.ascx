@@ -33,10 +33,24 @@
 
                 </div>
                 <div class="formCreateAndFixRight">
-                    <asp:TextBox runat="server" ID="txt_weights"  CssClass="txtcreate" placeholder="Cân nặng sản phẩm..."></asp:TextBox>
-                    <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_weights" ErrorMessage="⚠️ Bạn vui lòng nhập cân nặng" CssClass="errorFormCreateAndFix"></asp:RequiredFieldValidator>
-                    <asp:TextBox runat="server" ID="txt_origin" CssClass="txtcreate" placeholder="Nơi xuất xứ sản phẩm..."></asp:TextBox>
-                    <asp:RequiredFieldValidator runat="server" ControlToValidate="txt_origin" ErrorMessage="⚠️ Bạn vui lòng nhập nơi xuất xứ" CssClass="errorFormCreateAndFix"></asp:RequiredFieldValidator>
+                    <asp:DropDownList runat="server" ID="d_weightCreate" CssClass="txtcreate">
+                        <asp:ListItem Text="Khối lượng" Value="" />
+                        <asp:ListItem Text="300g" Value="300g"></asp:ListItem>
+                        <asp:ListItem Value="500g" Text="500g"></asp:ListItem>
+                        <asp:ListItem Value="1kg" Text="1kg"></asp:ListItem>
+                        <asp:ListItem Value="1.5kg" Text="1.5kg"></asp:ListItem>
+                        <asp:ListItem Value="2kg" Text="2kg"></asp:ListItem>
+                    </asp:DropDownList>
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="d_weightCreate" ErrorMessage="⚠️ Bạn vui lòng nhập cân nặng" CssClass="errorFormCreateAndFix"></asp:RequiredFieldValidator>
+                    <asp:DropDownList runat="server" ID="d_originCreate" CssClass="txtcreate">
+                        <asp:ListItem Text="Xuất xứ" Value="" />
+                        <asp:ListItem Text="Hà Nội" Value="Hà Nội"></asp:ListItem>
+                        <asp:ListItem Value="Hồ Chí Minh" Text="Hồ Chí Minh"></asp:ListItem>
+                        <asp:ListItem Value="Lâm Đồng" Text="Lâm Đồng"></asp:ListItem>
+                        <asp:ListItem Value="Tiên Giang" Text="Tiên Giang"></asp:ListItem>
+                        <asp:ListItem Value="Đắk Lắk" Text="Đắk Lắk"></asp:ListItem>
+                    </asp:DropDownList>
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="d_originCreate" ErrorMessage="⚠️ Bạn vui lòng nhập nơi xuất xứ" CssClass="errorFormCreateAndFix"></asp:RequiredFieldValidator>
                     <div class="chooseImg">
                         <div>
                             <div>

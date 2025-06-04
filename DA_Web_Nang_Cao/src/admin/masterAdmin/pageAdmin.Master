@@ -26,10 +26,7 @@
                        <span>Sản phẩm</span>
                         <asp:Button runat="server" ID="Button1" CssClass="buttonNavigate" OnClick="OnclickButtonNavigate1" />
                    </asp:Panel>
-                 <asp:Panel runat="server" ID="p_boxNavigationBar3" CssClass="boxNavigationBar">
-                       <span>Đặt hàng</span>
-                        <asp:Button runat="server" ID="Button2" CssClass="buttonNavigate" OnClick="OnclickButtonNavigate2" />
-                   </asp:Panel>
+                 
                  <asp:Panel runat="server" ID="p_boxNavigationBar4" CssClass="boxNavigationBar">
                        <span>Liên hệ</span>
                         <asp:Button runat="server" ID="Button3" CssClass="buttonNavigate" OnClick="OnclickButtonNavigate3" />

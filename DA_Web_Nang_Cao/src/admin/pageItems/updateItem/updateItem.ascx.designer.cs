@@ -87,22 +87,22 @@ namespace DA_Web_Nang_Cao.src.admin.pageItems.updateItem
         protected global::System.Web.UI.WebControls.DropDownList d_statusCreate;
 
         /// <summary>
-        /// txt_weights control.
+        /// d_weightCreate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_weights;
+        protected global::System.Web.UI.WebControls.DropDownList d_weightCreate;
 
         /// <summary>
-        /// txt_origin control.
+        /// d_originCreate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_origin;
+        protected global::System.Web.UI.WebControls.DropDownList d_originCreate;
 
         /// <summary>
         /// fu_img0 control.
